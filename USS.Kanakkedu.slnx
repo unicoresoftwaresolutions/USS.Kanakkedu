@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="USS.Kanakkedu.SQL/USS.Kanakkedu.SQL.sqlproj">
+    <Build />
+    <Deploy />
+  </Project>
+</Solution>
