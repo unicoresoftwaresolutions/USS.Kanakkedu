@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[ACGroup]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Name] NVARCHAR(500) NOT NULL, 
+    [Code] NVARCHAR(50) NOT NULL, 
+    [ParentId] INT NULL, 
+    [FundId] INT NOT NULL,
+    CONSTRAINT [FK_ACGroup_Fund] FOREIGN KEY ([FundId]) REFERENCES [Fund]([Id])
+)

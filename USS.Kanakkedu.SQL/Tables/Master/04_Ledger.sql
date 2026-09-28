@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[Ledger]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Name] NVARCHAR(500) NOT NULL, 
+    [Code] NVARCHAR(50) NOT NULL, 
+    [ACGroupId] INT NOT NULL,
+    CONSTRAINT [FK_Ledger_ACGroup] FOREIGN KEY ([ACGroupId]) REFERENCES [ACGroup]([Id])
+)

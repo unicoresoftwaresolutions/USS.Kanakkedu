@@ -7,10 +7,9 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{0ab02db7-dafe-4b3b-b99b-8a8118b180ae}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql170DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
-    <RootPath>
-    </RootPath>
+    <RootPath />
     <RootNamespace>USS.Kanakkedu.SQL</RootNamespace>
     <AssemblyName>USS.Kanakkedu.SQL</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
@@ -48,7 +47,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
-    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
     <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
     <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
   </PropertyGroup>
@@ -56,5 +54,22 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="Tables" />
+    <Folder Include="Tables\Master" />
+    <Folder Include="Tables\Transaction" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\Master\01_Fund.sql" />
+    <Build Include="Tables\Master\02_ACYear.sql" />
+    <Build Include="Tables\Master\03_ACGroup.sql" />
+    <Build Include="Tables\Master\04_Ledger.sql" />
+    <Build Include="Tables\Master\05_LedgerBalance.sql" />
+    <Build Include="Tables\Transaction\01_Journal.sql" />
+    <Build Include="Tables\Transaction\02_JournalDetail.sql" />
+    <Build Include="Tables\Transaction\03_Payment.sql" />
+    <Build Include="Tables\Master\00_TransactionType.sql" />
+    <Build Include="Tables\Transaction\05_ChequeDetail.sql" />
+    <Build Include="Tables\Transaction\04_Receipt.sql" />
+    <Build Include="Tables\Master\00_JournalType.sql" />
   </ItemGroup>
 </Project>

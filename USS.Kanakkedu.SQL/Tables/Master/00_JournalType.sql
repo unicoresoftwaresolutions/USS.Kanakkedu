@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[JournalType]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Code] NVARCHAR(20) NOT NULL, 
+    [Name] NVARCHAR(50) NOT NULL
+)

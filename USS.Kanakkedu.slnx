@@ -1,5 +1,5 @@
 <Solution>
-  <Project Path="USS.Kanakkedu.SQL/USS.Kanakkedu.SQL.sqlproj">
+  <Project Path="USS.Kanakkedu.SQL/USS.Kanakkedu.SQL.sqlproj" Id="0ab02db7-dafe-4b3b-b99b-8a8118b180ae">
     <Build />
     <Deploy />
   </Project>
