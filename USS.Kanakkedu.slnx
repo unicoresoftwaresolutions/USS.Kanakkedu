@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="USS.Kanakkedu.Data/USS.Kanakkedu.Data.csproj" Id="b052c98d-eaf4-4c6c-b28f-524f208dd625" />
   <Project Path="USS.Kanakkedu.Model/USS.Kanakkedu.Model.csproj" Id="a83a7f19-2015-40ab-aaaa-29826048d4b5" />
   <Project Path="USS.Kanakkedu.SQL/USS.Kanakkedu.SQL.sqlproj" Id="0ab02db7-dafe-4b3b-b99b-8a8118b180ae">
     <Build />
