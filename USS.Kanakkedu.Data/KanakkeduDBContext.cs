@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
+using USS.Kanakkedu.Model;
 
 namespace USS.Kanakkedu.Data
 {
-    internal class KanakkeduDBContext:DbContext 
+    public class KanakkeduDBContext:DbContext 
     {
         public KanakkeduDBContext(DbContextOptions<KanakkeduDBContext> options)
             : base(options)
