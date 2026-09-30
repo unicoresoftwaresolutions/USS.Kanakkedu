@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using USS.Kanakkedu.Model;
 
-namespace USS.Kanakkedu.Data.Interface
+namespace USS.Kanakkedu.Business.Interface
 {
-    public interface IFundData : IBaseData<Fund>
+    public interface IJournalTypeBusiness : IBaseBusiness<JournalType>
     {
-        
     }
 }

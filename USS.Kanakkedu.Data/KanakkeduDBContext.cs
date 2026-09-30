@@ -14,6 +14,7 @@ namespace USS.Kanakkedu.Data
             
         }
 
-        public DbSet<Fund> Funds { get; set; }
+        public DbSet<Fund> Fund { get; set; }
+        public DbSet<JournalType> JournalType { get; set; }
     }
 }

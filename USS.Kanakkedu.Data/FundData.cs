@@ -3,18 +3,10 @@ using USS.Kanakkedu.Model;
 
 namespace USS.Kanakkedu.Data
 {
-    public class FundData : IFundData
+    public class FundData : BaseData<Fund>, IFundData
     {
-        private readonly KanakkeduDBContext db;
-
-        public FundData(KanakkeduDBContext dBContext)
+        public FundData(KanakkeduDBContext dBContext) : base(dBContext)
         {
-            db = dBContext;
-        }
-
-        public List<Fund> GetAll()
-        {
-            return db.Funds.ToList();
         }
     }
 }
