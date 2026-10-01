@@ -1,0 +1,20 @@
+﻿@page "/fund"
+@using USS.Kanakkedu.ClientService
+
+@inject KanakkeduHTTPClient http;
+
+<h3>Fund ( @funds?.Count )</h3>
+
+@code {
+
+    private List<Model.Fund> funds { get; set; }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        http.FundAllAsync();
+    } 
+
+}

@@ -11,9 +11,9 @@ namespace USS.Kanakkedu.ClientService
             this.client = client;
         }
 
-        public async Task<ICollection<Fund>> FundAllAsync()
+        public void FundAllAsync()
         {
-            return await client.GetFromJsonAsync<ICollection<Fund>>("/Fund");
+            var result = client.GetAsync("/Fund");
         }
     }
 }
