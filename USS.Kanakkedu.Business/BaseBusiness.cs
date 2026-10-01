@@ -15,10 +15,27 @@ namespace USS.Kanakkedu.Business
         {
             this.data = data;
         }
-       
+
+        
         public List<T> GetAll()
         {
             return data.GetAll();
         }
+
+        public T Insert(T item)
+        {
+            return data.Insert(item);
+        }
+
+        public T Update(T item)
+        {
+            return data.Update(item);
+        }
+
+        public bool Delete(T item)
+        {
+            return data.Delete(item);
+        }
+
     }
 }

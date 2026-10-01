@@ -40,6 +40,7 @@ app.MapControllers();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.UseSwaggerUi(o => o.DocumentPath = "openapi/v1.json");
 }
 
 

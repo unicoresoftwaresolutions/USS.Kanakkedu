@@ -14,9 +14,41 @@ namespace USS.Kanakkedu.Data
             db = dBContext;
         }
 
+
         public List<T> GetAll()
         {
             return db.Set<T>().ToList();
+        }
+
+        public T Insert(T item)
+        {
+
+            db.Set<T>().Add(item);
+            db.SaveChanges();
+            return item;
+        }
+
+        public T Update(T item)
+        {
+            db.Set<T>().Update(item);
+            db.SaveChanges();
+            return item;
+        }
+
+
+        public bool Delete(T item)
+        {
+            try
+            {
+                db.Set<T>().Remove(item);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            
         }
     }
 }

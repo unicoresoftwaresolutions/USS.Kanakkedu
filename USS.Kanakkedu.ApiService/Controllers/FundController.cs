@@ -6,8 +6,7 @@ using USS.Kanakkedu.Business.Interface;
 
 namespace USS.Kanakkedu.ApiService.Controllers
 {
-
-    [Route("api/[controller]")]
+   
     [ApiController]
     public class FundController : BaseAPIController<Fund>
     {

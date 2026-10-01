@@ -10,6 +10,7 @@
   </Folder>
   <Project Path="USS.Kanakkedu.ApiService/USS.Kanakkedu.ApiService.csproj" />
   <Project Path="USS.Kanakkedu.AppHost/USS.Kanakkedu.AppHost.csproj" Id="079131a1-89e7-489c-bb3b-9895c4b61991" />
+  <Project Path="USS.Kanakkedu.ClientService/USS.Kanakkedu.ClientService.csproj" Id="3fb8d422-5318-44d7-b2b4-abe9dd5dc21b" />
   <Project Path="USS.Kanakkedu.ServiceDefaults/USS.Kanakkedu.ServiceDefaults.csproj" />
   <Project Path="USS.Kanakkedu.SQL/USS.Kanakkedu.SQL.sqlproj" Id="0ab02db7-dafe-4b3b-b99b-8a8118b180ae">
     <Build />

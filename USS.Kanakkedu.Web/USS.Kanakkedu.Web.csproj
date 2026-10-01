@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\USS.Kanakkedu.ClientService\USS.Kanakkedu.ClientService.csproj" />
     <ProjectReference Include="..\USS.Kanakkedu.ServiceDefaults\USS.Kanakkedu.ServiceDefaults.csproj" />
   </ItemGroup>
 

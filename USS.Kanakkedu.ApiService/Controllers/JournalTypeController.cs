@@ -4,8 +4,7 @@ using USS.Kanakkedu.Business.Interface;
 using USS.Kanakkedu.Model;
 
 namespace USS.Kanakkedu.ApiService.Controllers
-{
-    [Route("api/[controller]")]
+{    
     [ApiController]
     public class JournalTypeController : BaseAPIController<JournalType>
     {
