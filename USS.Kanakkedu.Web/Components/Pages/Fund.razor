@@ -9,13 +9,13 @@
 @if (funds?.Count>0)
 {
 
-    <table>
-        <thead>
+    <table class="table table-striped table-hover table-bordered">
+        <thead class="table-primary">
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>IsActive</th>
-                <th>Action</th>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">IsActive</th>
+                <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -23,7 +23,16 @@
             {
                 <tr>
                     <td>@fund.data.Id</td>
-                    <td>@fund.data.Name</td>
+                    <td>
+                        @if (fund.IsEdit)
+                        {
+                            <input @bind="fund.EditData.Name" type="text" class="form-control" placeholder="Enter your name" aria-label="Name" />
+                        }
+                        else
+                        {
+                            @fund.data.Name
+                        }
+                    </td>
                     <td>@fund.data.IsActive</td>
                     <td>
                         @if (fund.IsEdit)
@@ -61,6 +70,7 @@
     class FundModel 
     {
         public Model.Fund data { get; set; }
+        public Model.Fund EditData { get; set; }
         public bool IsEdit { get; set; }
     }
 
@@ -78,20 +88,27 @@
 
     void Add()
     {
-        FundModel fund = new(){data = new(),IsEdit=true};
+        FundModel fund = new(){data = new(),EditData=new(),IsEdit=true};
         funds.Add(fund);
     }
     void Edit(FundModel f)
     {
         f.IsEdit = true;
+        f.EditData = new() { Name = f.data.Name, IsActive = f.data.IsActive };
     }
     void Delete(FundModel f)
     {
         funds.Remove(f);
     }
-    void Save(FundModel f)
+    async void Save(FundModel f)
     {
         f.IsEdit = false;
+        f.data.Name = f.EditData.Name;
+        f.data.IsActive = f.EditData.IsActive;
+        if (f.data.Id == 0)
+        {
+          var result = await http.InsertFundAsync(f.data);
+        }
     }
     void Cancel(FundModel f)
     {

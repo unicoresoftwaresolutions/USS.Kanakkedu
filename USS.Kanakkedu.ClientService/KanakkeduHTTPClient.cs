@@ -16,5 +16,24 @@ namespace USS.Kanakkedu.ClientService
         {
             return await client.GetFromJsonAsync<List<Fund>>("Fund");
         }
+
+        public async Task<Fund> InsertFundAsync(Fund data)
+        {
+            var result = await client.PostAsJsonAsync<Fund>("Fund", data);
+
+            return data;
+        }
+
+        public async Task<Fund> UpdateFundAsync(Fund data)
+        {
+            var result = await client.PutAsJsonAsync<Fund>("Fund", data);
+            return data;
+        }
+
+        public async Task<bool> DeleteFundAsync(Fund data)
+        {
+            var result = await client.DeleteAsync($"Fund/{data.Id}");
+            return true;
+        }
     }
 }
