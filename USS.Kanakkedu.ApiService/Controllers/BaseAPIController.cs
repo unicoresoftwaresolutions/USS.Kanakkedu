@@ -7,7 +7,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace USS.Kanakkedu.ApiService.Controllers
 {
     
-    [Route("KanakkeduAPI/[controller]")]
+    [Route("API/[controller]")]
     public class BaseAPIController<T> : ControllerBase
     {
 
@@ -24,21 +24,21 @@ namespace USS.Kanakkedu.ApiService.Controllers
         }
 
         [HttpPost]
-        public T Insert(T item)
+        public bool Insert(T item)
         {
             return business.Insert(item);
         }
 
         [HttpPut]
-        public T Update(T item)
+        public bool Update(T item)
         {
             return business.Update(item);
         }
 
-        [HttpDelete]
-        public bool Delete(T item)
+        [HttpDelete("{Id}")]
+        public bool Delete(Guid Id)
         {
-            return business.Delete(item);
+            return business.Delete(Id);
         }
     }
 }

@@ -6,8 +6,6 @@
 
 @inject KanakkeduHTTPClient http;
 
-@if (funds?.Count>0)
-{
 
     <table class="table table-striped table-hover table-bordered">
         <thead class="table-primary">
@@ -18,7 +16,10 @@
                 <th scope="col">Action</th>
             </tr>
         </thead>
+        @if (funds?.Count > 0)
+        {
         <tbody>
+
             @foreach (var fund in funds)
             {
                 <tr>
@@ -50,8 +51,10 @@
                 </tr>
             }
         </tbody>
+        }
+
         <tfoot>
-            @if(funds.Count(x=> x.data.Id == 0) == 0)
+            @if((funds?.Count(x=> x.data.Id == default)??0) == 0)
             {
                 <tr>
                     <td colspan="4"><button class="btn btn-primary" @onclick="Add">Add Fund</button></td>
@@ -60,11 +63,20 @@
             
         </tfoot>
     </table>
-}
-       
 
 
-
+<Modal @bind-Open="IsDeleteModal" Close="OnDeleteClose">
+    <form method="dialog">
+        <p>
+            Do you really want to delete this?
+        </p>
+        <menu>
+            <button value="Ok" class="btn btn-primary">Ok</button>
+            <button value="cancel" class="btn btn-danger">Cancel</button>
+        </menu>
+    </form>
+</Modal>
+    
 @code {
 
     class FundModel 
@@ -73,47 +85,64 @@
         public Model.Fund EditData { get; set; }
         public bool IsEdit { get; set; }
     }
-
+    private bool IsDeleteModal { get; set; } = false;
     private List<FundModel> funds { get; set; }
-
+    private Guid Id { get; set; }
+    async void OnDeleteClose(string value)
+    {
+        if (value == "Ok")
+        {
+            await http.DeleteFundAsync(Id);
+            await GetData();
+        }
+    }
 
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
-
-        var result = await http.FundAllAsync();
-        funds = result.Select(x => new FundModel() { data = x, IsEdit = false }).ToList();
+        await GetData();
     } 
 
-
-    void Add()
+    async Task GetData()
+    {
+        var result = await http.FundAllAsync();
+        funds = result.Select(x => new FundModel() { data = x, IsEdit = false }).ToList();
+        StateHasChanged();
+    }
+    async void Add()
     {
         FundModel fund = new(){data = new(),EditData=new(),IsEdit=true};
         funds.Add(fund);
     }
-    void Edit(FundModel f)
+    async void Edit(FundModel f)
     {
         f.IsEdit = true;
-        f.EditData = new() { Name = f.data.Name, IsActive = f.data.IsActive };
+        f.EditData = new() {Id= f.data.Id, Name = f.data.Name, IsActive = f.data.IsActive };
     }
-    void Delete(FundModel f)
+    async void Delete(FundModel f)
     {
-        funds.Remove(f);
+        Id = f.data.Id;
+        IsDeleteModal = true;
     }
     async void Save(FundModel f)
     {
         f.IsEdit = false;
-        f.data.Name = f.EditData.Name;
-        f.data.IsActive = f.EditData.IsActive;
-        if (f.data.Id == 0)
+        if (f.data.Id == default)
         {
-          var result = await http.InsertFundAsync(f.data);
+            f.EditData.Id = Guid.NewGuid();
+            var result = await http.InsertFundAsync(f.EditData);
         }
+        else
+        {
+            var result = await http.UpdateFundAsync(f.EditData);
+        }
+        await GetData();
+
     }
     void Cancel(FundModel f)
     {
-
-        if (f.data.Id == 0) funds.Remove(f);
+        
+        if (f.data.Id == default) funds.Remove(f);
         else f.IsEdit = false;
     }
 }

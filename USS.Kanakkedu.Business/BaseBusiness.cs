@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using USS.Kanakkedu.Business.Interface;
+﻿using USS.Kanakkedu.Business.Interface;
 using USS.Kanakkedu.Data.Interface;
-using USS.Kanakkedu.Model;
 
 namespace USS.Kanakkedu.Business
 {
@@ -22,19 +18,19 @@ namespace USS.Kanakkedu.Business
             return data.GetAll();
         }
 
-        public T Insert(T item)
+        public bool Insert(T item)
         {
             return data.Insert(item);
         }
 
-        public T Update(T item)
+        public bool Update(T item)
         {
             return data.Update(item);
         }
 
-        public bool Delete(T item)
+        public bool Delete(Guid Id)
         {
-            return data.Delete(item);
+            return data.Delete(Id);
         }
 
     }

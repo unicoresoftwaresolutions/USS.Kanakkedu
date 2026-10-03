@@ -15,7 +15,7 @@ builder.Services.AddOutputCache();
 
 
 builder.Services.AddHttpClient<KanakkeduHTTPClient>(client => {
-    client.BaseAddress = new("https+http://usskanakkedu/KanakkeduAPI/");
+    client.BaseAddress = new("https+http://usskanakkedu/API/");
 });
 
 var app = builder.Build();

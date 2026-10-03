@@ -30,9 +30,9 @@ namespace USS.Kanakkedu.ClientService
             return data;
         }
 
-        public async Task<bool> DeleteFundAsync(Fund data)
+        public async Task<bool> DeleteFundAsync(Guid Id)
         {
-            var result = await client.DeleteAsync($"Fund/{data.Id}");
+            var result = await client.DeleteAsync($"Fund/{Id}");
             return true;
         }
     }

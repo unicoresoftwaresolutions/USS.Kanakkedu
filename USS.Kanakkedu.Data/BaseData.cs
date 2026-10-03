@@ -1,54 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Microsoft.EntityFrameworkCore;
 using USS.Kanakkedu.Data.Interface;
-using USS.Kanakkedu.Model;
-using Microsoft.EntityFrameworkCore;
 namespace USS.Kanakkedu.Data
 {
     public class BaseData<T> : IBaseData<T> where T : class
     {
         protected readonly KanakkeduDBContext db;
+        protected readonly DbSet<T> entity;
         public BaseData(KanakkeduDBContext dBContext)
         {
             db = dBContext;
+            entity = db.Set<T>();
         }
 
 
         public List<T> GetAll()
         {
-            return db.Set<T>().ToList();
+            return entity.ToList();
         }
 
-        public T Insert(T item)
+        public bool Insert(T item)
         {
-
-            db.Set<T>().Add(item);
+            entity.Add(item);
             db.SaveChanges();
-            return item;
+            return true;
         }
 
-        public T Update(T item)
+        public bool Update(T item)
         {
-            db.Set<T>().Update(item);
+            entity.Update(item);
             db.SaveChanges();
-            return item;
+            return true;
         }
 
 
-        public bool Delete(T item)
+        public bool Delete(Guid Id)
         {
-            try
-            {
-                db.Set<T>().Remove(item);
-                db.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-            
+            var d = entity.Find(Id);
+            if (d != null) entity.Remove(d);
+            db.SaveChanges();
+            return true;
         }
     }
 }
