@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[Journal]
 (
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [JournalTypeId] INT NULL, 
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
+    [JournalTypeId] UNIQUEIDENTIFIER NULL, 
     [EntryNo] NVARCHAR(50) NULL, 
     [Date] DATE NOT NULL, 
     [Amount] MONEY NOT NULL, 

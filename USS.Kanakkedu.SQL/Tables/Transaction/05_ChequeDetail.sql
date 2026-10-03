@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[ChequeDetail]
 (
-	[Id] INT NOT NULL PRIMARY KEY Identity, 
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
     [No] VARCHAR(500) NULL, 
     [Date] DATE NULL, 
     [ClearedAt] DATE NULL
