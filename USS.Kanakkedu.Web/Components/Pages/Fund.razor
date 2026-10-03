@@ -1,7 +1,11 @@
-﻿@page "/fund"
-@using USS.Kanakkedu.ClientService
+﻿@using USS.Kanakkedu.ClientService
+
+@page "/fund"
+
+@rendermode InteractiveServer
 
 @inject KanakkeduHTTPClient http;
+
 @if (funds?.Count>0)
 {
 
@@ -18,16 +22,34 @@
             @foreach (var fund in funds)
             {
                 <tr>
-                    <td>@fund.Id</td>
-                    <td>@fund.Name</td>
-                    <td>@fund.IsActive</td>
+                    <td>@fund.data.Id</td>
+                    <td>@fund.data.Name</td>
+                    <td>@fund.data.IsActive</td>
                     <td>
-                        <button class="btn btn-primary">Edit</button>
-                        <button class="btn btn-danger">Delete</button>
+                        @if (fund.IsEdit)
+                        {
+                            <button class="btn btn-primary" @onclick=@( x=> Save(fund) ) >Save</button>
+                            <button class="btn btn-danger" @onclick=@( x=> Cancel(fund))>Cancel</button>
+                        }
+                        else
+                        {
+                            <button class="btn btn-primary" @onclick=@( x=> Edit(fund) )>Edit</button>
+                            <button class="btn btn-danger" @onclick=@( x=> Delete(fund))>Delete</button>
+                        }
+
                     </td>
                 </tr>
             }
         </tbody>
+        <tfoot>
+            @if(funds.Count(x=> x.data.Id == 0) == 0)
+            {
+                <tr>
+                    <td colspan="4"><button class="btn btn-primary" @onclick="Add">Add Fund</button></td>
+                </tr>
+            }
+            
+        </tfoot>
     </table>
 }
        
@@ -36,14 +58,45 @@
 
 @code {
 
-    private List<Model.Fund> funds { get; set; }
+    class FundModel 
+    {
+        public Model.Fund data { get; set; }
+        public bool IsEdit { get; set; }
+    }
+
+    private List<FundModel> funds { get; set; }
 
 
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
 
-       funds = await http.FundAllAsync();
+        var result = await http.FundAllAsync();
+        funds = result.Select(x => new FundModel() { data = x, IsEdit = false }).ToList();
     } 
 
+
+    void Add()
+    {
+        FundModel fund = new(){data = new(),IsEdit=true};
+        funds.Add(fund);
+    }
+    void Edit(FundModel f)
+    {
+        f.IsEdit = true;
+    }
+    void Delete(FundModel f)
+    {
+        funds.Remove(f);
+    }
+    void Save(FundModel f)
+    {
+        f.IsEdit = false;
+    }
+    void Cancel(FundModel f)
+    {
+
+        if (f.data.Id == 0) funds.Remove(f);
+        else f.IsEdit = false;
+    }
 }

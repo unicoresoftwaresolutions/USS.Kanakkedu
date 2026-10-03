@@ -36,7 +36,9 @@ var app = builder.Build();
 app.UseExceptionHandler();
 
 app.MapControllers();
-
+app.MapGet("/test01", x => {
+    return x.Response.WriteAsync("this is test page");
+});
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
