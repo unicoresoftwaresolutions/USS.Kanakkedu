@@ -13,17 +13,9 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddOutputCache();
 
-builder.Services.AddHttpClient<WeatherApiClient>(client =>
-    {
-        // This URL uses "https+http://" to indicate HTTPS is preferred over HTTP.
-        // Learn more about service discovery scheme resolution at https://aka.ms/dotnet/sdschemes.
-        client.BaseAddress = new("https+http://usskanakkedu");
-    });
-
 
 builder.Services.AddHttpClient<KanakkeduHTTPClient>(client => {
-    //client.BaseAddress = new("https+http://usskanakkedu/KanakkeduAPI/");
-    client.BaseAddress = new("https://localhost:7489/KanakkeduAPI");
+    client.BaseAddress = new("https+http://usskanakkedu/KanakkeduAPI/");
 });
 
 var app = builder.Build();

@@ -1,4 +1,5 @@
 ﻿using System.Net.Http.Json;
+using System.Text.Json;
 using USS.Kanakkedu.Model;
 
 namespace USS.Kanakkedu.ClientService
@@ -11,9 +12,9 @@ namespace USS.Kanakkedu.ClientService
             this.client = client;
         }
 
-        public void FundAllAsync()
+        public async Task<List<Fund>> FundAllAsync()
         {
-            var result = client.GetAsync("/Fund");
+            return await client.GetFromJsonAsync<List<Fund>>("Fund");
         }
     }
 }
