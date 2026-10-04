@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\USS.Kanakkedu.ClientService\USS.Kanakkedu.ClientService.csproj" />
+    <ProjectReference Include="..\USS.Kanakkedu.Extension\USS.Kanakkedu.Extension.csproj" />
     <ProjectReference Include="..\USS.Kanakkedu.ServiceDefaults\USS.Kanakkedu.ServiceDefaults.csproj" />
   </ItemGroup>
 

@@ -1,14 +1,16 @@
-﻿using USS.Kanakkedu.ClientService;
+﻿using Microsoft.AspNetCore.Components;
+using USS.Kanakkedu.ClientService;
+using USS.Kanakkedu.Extension;
 
 namespace USS.Kanakkedu.Web.Components.Pages
 {
-    public class BaseViewModel<T> where T : class
+    public class BaseViewModel<T>:ComponentBase where T : new()
     {
-        private KanakkeduHTTPClient http { get; set; }
-        private BaseService<T> service { get; set; }
-        private bool IsDeleteModal { get; set; } = false;
-        private List<BaseModel<T>> Datas { get; set; } 
-        private Guid Id { get; set; }
+        protected KanakkeduHTTPClient http { get; set; }
+        protected BaseService<T> service { get; set; }
+        protected bool IsDeleteModal { get; set; } = false;
+        protected List<BaseModel<T>> Datas { get; set; }
+        protected Guid Id { get; set; }
 
         public BaseViewModel(KanakkeduHTTPClient http)
         {
@@ -16,43 +18,48 @@ namespace USS.Kanakkedu.Web.Components.Pages
             Datas = new List<BaseModel<T>>();
             service = new BaseService<T>(http.client);
         }
-
-        async void OnDeleteClose(string value)
+        protected override async Task OnInitializedAsync()
+        {
+            await base.OnInitializedAsync();
+            await GetData();
+        }
+        public async void OnDeleteClose(string value)
         {
             if (value == "Ok")
             {
-                await http.Fund.DeleteAsync(Id);
+                await service.DeleteAsync(Id);
                 await GetData();
             }
         }
 
-        async Task GetData()
+        public async Task GetData()
         {
             var result = await service.AllAsync();
             Datas = result.Select(x => new BaseModel<T>() { data = x, IsEdit = false }).ToList();
-            //StateHasChanged();
+            StateHasChanged();
         }
-        async void Add()
+        public async void Add()
         {
-            BaseModel<T> fund = new() {IsEdit = true };
-            Datas.Add(fund);
+            BaseModel<T> data = new() {IsEdit = true, data = new T(), EditData = new T() };
+            Datas.Add(data);
         }
-        async void Edit(BaseModel<T> f)
+        public async void Edit(BaseModel<T> f)
         {
             f.IsEdit = true;
-            f.EditData = default;
+            var m = f.data.GetType().GetMethod("Clone");
+            f.EditData = (T)m.Invoke(f.data, null);
         }
-        async void Delete(BaseModel<T> f)
+        public async void Delete(BaseModel<T> f)
         {
-            //Id = f.data.Id;
+            Id = Guid.Parse(f.data.GetPropertyValue(nameof(Id)).ToString());
             IsDeleteModal = true;
         }
-        async void Save(BaseModel<T> f)
+        public  async void Save(BaseModel<T> f)
         {
             f.IsEdit = false;
-            if (f.data.Id == default)
+            if (Guid.Parse(f.data.GetPropertyValue(nameof(Id)).ToString()) == default)
             {
-                f.EditData.Id = Guid.NewGuid();
+                f.EditData.SetPropertyValue(nameof(Id), Guid.NewGuid());
                 var result = await service.InsertAsync(f.EditData);
             }
             else
@@ -62,10 +69,10 @@ namespace USS.Kanakkedu.Web.Components.Pages
             await GetData();
 
         }
-        void Cancel(BaseModel<T> f)
+        public void Cancel(BaseModel<T> f)
         {
 
-            if (f.data.Id == default) Datas.Remove(f);
+            if (Guid.Parse(f.data.GetPropertyValue(nameof(Id)).ToString()) == default) Datas.Remove(f);
             else f.IsEdit = false;
         }
 

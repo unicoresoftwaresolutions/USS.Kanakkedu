@@ -1,4 +1,5 @@
 ﻿@page "/fund"
+@inherits BaseViewModel<Model.Fund>
 
 @rendermode InteractiveServer
 
@@ -14,14 +15,14 @@
                 <th scope="col">Action</th>
             </tr>
         </thead>
-        @if (funds?.Count > 0)
+        @if (Datas?.Count > 0)
         {
         <tbody>
 
-            @foreach (var fund in funds)
+            @foreach (var fund in Datas)
             {
                 <tr>
-                    <td>@fund.data.Id</td>
+                    <td>@fund.data?.Id</td>
                     <td>
                         @if (fund.IsEdit)
                         {
@@ -52,7 +53,7 @@
         }
 
         <tfoot>
-            @if((funds?.Count(x=> x.data.Id == default)??0) == 0)
+            @if((Datas?.Count(x=> x.data.Id == default)??0) == 0)
             {
                 <tr>
                     <td colspan="4"><button class="btn btn-primary" @onclick="Add">Add Fund</button></td>

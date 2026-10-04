@@ -6,6 +6,7 @@
   <Folder Name="/Library/">
     <Project Path="USS.Kanakkedu.Business/USS.Kanakkedu.Business.csproj" Id="ce920532-7b24-47ec-bcbe-7ba1999b3871" />
     <Project Path="USS.Kanakkedu.Data/USS.Kanakkedu.Data.csproj" Id="b052c98d-eaf4-4c6c-b28f-524f208dd625" />
+    <Project Path="USS.Kanakkedu.Extension/USS.Kanakkedu.Extension.csproj" Id="42e7b206-46b1-47e2-9bd4-f8529360d29c" />
     <Project Path="USS.Kanakkedu.Model/USS.Kanakkedu.Model.csproj" Id="a83a7f19-2015-40ab-aaaa-29826048d4b5" />
   </Folder>
   <Folder Name="/Test/">
