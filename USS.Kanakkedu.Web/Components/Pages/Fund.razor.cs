@@ -23,7 +23,7 @@ namespace USS.Kanakkedu.Web.Components.Pages
 
         async Task GetData()
         {
-            var result = await http.FundAllAsync();
+            var result = await http.Fund.AllAsync();
             funds = result.Select(x => new FundModel() { data = x, IsEdit = false }).ToList();
             StateHasChanged();
         }
@@ -48,11 +48,11 @@ namespace USS.Kanakkedu.Web.Components.Pages
             if (f.data.Id == default)
             {
                 f.EditData.Id = Guid.NewGuid();
-                var result = await http.InsertFundAsync(f.EditData);
+                var result = await http.Fund.InsertAsync(f.EditData);
             }
             else
             {
-                var result = await http.UpdateFundAsync(f.EditData);
+                var result = await http.Fund.UpdateAsync(f.EditData);
             }
             await GetData();
 
@@ -67,7 +67,7 @@ namespace USS.Kanakkedu.Web.Components.Pages
         {
             if (value == "Ok")
             {
-                await http.DeleteFundAsync(Id);
+                await http.Fund.DeleteAsync(Id);
                 await GetData();
             }
         }
