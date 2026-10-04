@@ -3,9 +3,11 @@
     public class KanakkeduHTTPClient
     {
         public readonly FundService Fund;
+        public readonly HttpClient client;
         public KanakkeduHTTPClient(HttpClient http)
         {
-            Fund = new (http);
+            client = http;
+            Fund = new (client);
         }
 
     }
