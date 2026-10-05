@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using USS.Base.Business.Interface;
 using USS.Kanakkedu.Business.Interface;
 using USS.Kanakkedu.Data.Interface;
 using static System.Runtime.InteropServices.JavaScript.JSType;

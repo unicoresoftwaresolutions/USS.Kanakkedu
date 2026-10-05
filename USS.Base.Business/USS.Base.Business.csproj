@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\USS.Base.Business\USS.Base.Business.csproj" />
-    <ProjectReference Include="..\USS.Kanakkenu.Business.Interface\USS.Kanakkedu.Business.Interface.csproj" />
+    <ProjectReference Include="..\USS.Base.Business.Interface\USS.Base.Business.Interface.csproj" />
+    <ProjectReference Include="..\USS.Base.Data.Interface\USS.Base.Data.Interface.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,7 +1,7 @@
-﻿using USS.Kanakkedu.Business.Interface;
-using USS.Kanakkedu.Data.Interface;
+﻿using USS.Base.Business.Interface;
+using USS.Base.Data.Interface;
 
-namespace USS.Kanakkedu.Business
+namespace USS.Base.Business
 {
     public class BaseBusiness<T> : IBaseBusiness<T>
     {
