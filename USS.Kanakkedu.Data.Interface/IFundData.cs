@@ -1,4 +1,5 @@
-﻿using USS.Kanakkedu.Model;
+﻿using USS.Base.Data.Interface;
+using USS.Kanakkedu.Model;
 
 namespace USS.Kanakkedu.Data.Interface
 {

@@ -1,4 +1,4 @@
-﻿namespace USS.Kanakkedu.Data.Interface
+﻿namespace USS.Base.Data.Interface
 {
     public interface IBaseData<T> 
     {

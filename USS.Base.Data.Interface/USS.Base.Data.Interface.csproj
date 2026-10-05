@@ -6,9 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\USS.Base.Data.Interface\USS.Base.Data.Interface.csproj" />
-    <ProjectReference Include="..\USS.Kanakkedu.Model\USS.Kanakkedu.Model.csproj" />
-  </ItemGroup>
-
 </Project>
