@@ -1,7 +1,7 @@
-﻿using System.Net.Http.Json;
+﻿using USS.Base.Service;
 using USS.Kanakkedu.Model;
 
-namespace USS.Kanakkedu.ClientService
+namespace USS.Kanakkedu.Service
 {
     public class FundService:BaseService<Fund>
     {

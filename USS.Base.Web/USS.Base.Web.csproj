@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="10.0.12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\USS.Base.Extension\USS.Base.Extension.csproj" />
+    <ProjectReference Include="..\USS.Base.Model\USS.Base.Model.csproj" />
+    <ProjectReference Include="..\USS.Base.Service\USS.Base.Service.csproj" />
+  </ItemGroup>
+
+</Project>

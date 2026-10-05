@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\USS.Base.Service\USS.Base.Service.csproj" />
     <ProjectReference Include="..\USS.Kanakkedu.Model\USS.Kanakkedu.Model.csproj" />
   </ItemGroup>
 

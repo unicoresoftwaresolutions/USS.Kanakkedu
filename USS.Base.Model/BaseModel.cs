@@ -1,4 +1,4 @@
-﻿namespace USS.Kanakkedu.Web.Components.Pages
+﻿namespace USS.Base.Model
 {
     public class BaseModel<T> where T : new()
     {

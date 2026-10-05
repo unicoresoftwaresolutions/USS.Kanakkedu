@@ -1,23 +1,27 @@
 ﻿using Microsoft.AspNetCore.Components;
-using USS.Kanakkedu.ClientService;
+using System;
+using System.Collections.Generic;
+using System.Text;
 using USS.Base.Extension;
+using USS.Base.Model;
+using USS.Base.Service;
 
-namespace USS.Kanakkedu.Web.Components.Pages
+namespace USS.Base.Web
 {
-    public class BaseViewModel<T>:ComponentBase where T : new()
+    public class BaseWeb<T> : ComponentBase where T : new()
     {
-        protected KanakkeduHTTPClient http { get; set; }
+        protected HttpClient http { get; set; }
         protected BaseService<T> service { get; set; }
         protected bool IsDeleteModal { get; set; } = false;
         protected List<BaseModel<T>> Datas { get; set; }
         protected Guid Id { get; set; }
-
-        public BaseViewModel(KanakkeduHTTPClient http)
+        public BaseWeb(HttpClient http)
         {
             this.http = http;
             Datas = new List<BaseModel<T>>();
-            service = new BaseService<T>(http.client);
+            service = new BaseService<T>(http);
         }
+
         protected override async Task OnInitializedAsync()
         {
             await base.OnInitializedAsync();
@@ -40,7 +44,7 @@ namespace USS.Kanakkedu.Web.Components.Pages
         }
         public async void Add()
         {
-            BaseModel<T> data = new() {IsEdit = true, data = new T(), EditData = new T() };
+            BaseModel<T> data = new() { IsEdit = true, data = new T(), EditData = new T() };
             Datas.Add(data);
         }
         public async void Edit(BaseModel<T> f)
@@ -54,7 +58,7 @@ namespace USS.Kanakkedu.Web.Components.Pages
             Id = Guid.Parse(f.data.GetPropertyValue(nameof(Id)).ToString());
             IsDeleteModal = true;
         }
-        public  async void Save(BaseModel<T> f)
+        public async void Save(BaseModel<T> f)
         {
             f.IsEdit = false;
             if (Guid.Parse(f.data.GetPropertyValue(nameof(Id)).ToString()) == default)
@@ -75,6 +79,5 @@ namespace USS.Kanakkedu.Web.Components.Pages
             if (Guid.Parse(f.data.GetPropertyValue(nameof(Id)).ToString()) == default) Datas.Remove(f);
             else f.IsEdit = false;
         }
-
     }
 }

@@ -8,8 +8,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\USS.Base.Extension\USS.Base.Extension.csproj" />
-    <ProjectReference Include="..\USS.Kanakkedu.ClientService\USS.Kanakkedu.ClientService.csproj" />
+    <ProjectReference Include="..\USS.Base.Model\USS.Base.Model.csproj" />
+    <ProjectReference Include="..\USS.Base.Web\USS.Base.Web.csproj" />
     <ProjectReference Include="..\USS.Kanakkedu.ServiceDefaults\USS.Kanakkedu.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\USS.Kanakkedu.Service\USS.Kanakkedu.Service.csproj" />
   </ItemGroup>
 
 </Project>

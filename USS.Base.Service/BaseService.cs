@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http.Json;
-using System.Text;
-using USS.Kanakkedu.Model;
+﻿using System.Net.Http.Json;
 
-namespace USS.Kanakkedu.ClientService
+namespace USS.Base.Service
 {
     public class BaseService<T>
     {

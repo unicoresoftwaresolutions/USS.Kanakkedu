@@ -1,4 +1,4 @@
-﻿namespace USS.Kanakkedu.ClientService
+﻿namespace USS.Kanakkedu.Service
 {
     public class KanakkeduHTTPClient
     {

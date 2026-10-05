@@ -1,4 +1,4 @@
-using USS.Kanakkedu.ClientService;
+using USS.Kanakkedu.Service;
 using USS.Kanakkedu.Web;
 using USS.Kanakkedu.Web.Components;
 
