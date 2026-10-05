@@ -1,4 +1,4 @@
-﻿namespace USS.Kanakkedu.Business.Interface
+﻿namespace USS.Base.Business.Interface
 {
     public interface IBaseBusiness<T>
     {

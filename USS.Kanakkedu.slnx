@@ -1,6 +1,7 @@
 <Solution>
   <Folder Name="/Base/" />
   <Folder Name="/Base/Interface/">
+    <Project Path="USS.Base.Business.Interface/USS.Base.Business.Interface.csproj" Id="58ae3381-fbc2-46a9-8f42-b6ebbef2a198" />
     <Project Path="USS.Base.Data.Interface/USS.Base.Data.Interface.csproj" Id="60b5a481-fb53-454d-a665-c66172c3f0f8" />
   </Folder>
   <Folder Name="/Base/Library/" />
