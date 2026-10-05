@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using USS.Kanakkedu.Data.Interface;
-namespace USS.Kanakkedu.Data
+using USS.Base.Data.Interface;
+namespace USS.Base.Data
 {
     public class BaseData<T> : IBaseData<T> where T : class
     {
-        protected readonly KanakkeduDBContext db;
+        protected readonly DbContext db;
         protected readonly DbSet<T> entity;
-        public BaseData(KanakkeduDBContext dBContext)
+        public BaseData(DbContext dBContext)
         {
             db = dBContext;
             entity = db.Set<T>();

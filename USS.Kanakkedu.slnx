@@ -5,6 +5,7 @@
     <Project Path="USS.Base.Data.Interface/USS.Base.Data.Interface.csproj" Id="60b5a481-fb53-454d-a665-c66172c3f0f8" />
   </Folder>
   <Folder Name="/Base/Library/">
+    <Project Path="USS.Base.Data/USS.Base.Data.csproj" Id="32c4d194-1326-4330-80a9-1532031d1e8a" />
     <Project Path="USS.Base.Extension/USS.Base.Extension.csproj" Id="1d1b2074-83e9-4e64-a012-83a6ca21a96f" />
   </Folder>
   <Folder Name="/Kanakkedu/" />
