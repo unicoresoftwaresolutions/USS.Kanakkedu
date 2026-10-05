@@ -1,0 +1,6 @@
+@USS.Base.APIService_HostAddress = http://localhost:5002
+
+GET {{USS.Base.APIService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

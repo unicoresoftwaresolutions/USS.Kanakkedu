@@ -4,19 +4,18 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <!-- Enable OpenAPI source generator interceptors namespace to avoid CS9137 -->
+    <InterceptorsNamespaces>$(InterceptorsNamespaces);Microsoft.AspNetCore.OpenApi.Generated</InterceptorsNamespaces>
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\USS.Base.APIService\USS.Base.APIService.csproj" />
     <ProjectReference Include="..\USS.Kanakkedu.Business\USS.Kanakkedu.Business.csproj" />
     <ProjectReference Include="..\USS.Kanakkedu.Data\USS.Kanakkedu.Data.csproj" />
     <ProjectReference Include="..\USS.Kanakkedu.ServiceDefaults\USS.Kanakkedu.ServiceDefaults.csproj" />
     <ProjectReference Include="..\USS.Kanakkenu.Business.Interface\USS.Kanakkedu.Business.Interface.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.11" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.12" />
-    <PackageReference Include="NSwag.AspNetCore" Version="14.7.1" />
-  </ItemGroup>
+
 
 </Project>

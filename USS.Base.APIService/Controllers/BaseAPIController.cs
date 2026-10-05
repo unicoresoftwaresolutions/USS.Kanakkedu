@@ -1,11 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using USS.Base.Business.Interface;
-using USS.Kanakkedu.Business.Interface;
-using USS.Kanakkedu.Data.Interface;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace USS.Kanakkedu.ApiService.Controllers
+namespace USS.Base.ApiService.Controllers
 {
     
     [Route("API/[controller]")]

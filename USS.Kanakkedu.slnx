@@ -10,6 +10,9 @@
     <Project Path="USS.Base.Extension/USS.Base.Extension.csproj" Id="1d1b2074-83e9-4e64-a012-83a6ca21a96f" />
     <Project Path="USS.Base.Model/USS.Base.Model.csproj" Id="24763578-40f0-49c3-a605-1e601c619543" />
     <Project Path="USS.Base.Service/USS.Base.Service.csproj" Id="31c30f01-2eaa-4913-9a0e-e55247bf20c4" />
+  </Folder>
+  <Folder Name="/Base/Projects/">
+    <Project Path="USS.Base.APIService/USS.Base.APIService.csproj" Id="4866438c-1490-4264-a30b-d20c07f9ea4a" />
     <Project Path="USS.Base.Web/USS.Base.Web.csproj" Id="b2712406-01cf-4bf7-9f71-6a53bdce2a8b" />
   </Folder>
   <Folder Name="/Kanakkedu/" />

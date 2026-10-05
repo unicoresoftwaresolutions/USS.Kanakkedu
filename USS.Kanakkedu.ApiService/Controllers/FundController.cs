@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using USS.Kanakkedu.Data.Interface;
-using USS.Kanakkedu.Model;
+﻿using Microsoft.AspNetCore.Mvc;
+using USS.Base.ApiService.Controllers;
 using USS.Kanakkedu.Business.Interface;
+using USS.Kanakkedu.Model;
 
 namespace USS.Kanakkedu.ApiService.Controllers
 {
