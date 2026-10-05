@@ -1,4 +1,4 @@
-﻿namespace USS.Kanakkedu.Extension
+﻿namespace USS.Base.Extension
 {
     public static class ObjectExtension
     {

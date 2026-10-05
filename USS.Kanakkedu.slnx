@@ -4,7 +4,9 @@
     <Project Path="USS.Base.Business.Interface/USS.Base.Business.Interface.csproj" Id="58ae3381-fbc2-46a9-8f42-b6ebbef2a198" />
     <Project Path="USS.Base.Data.Interface/USS.Base.Data.Interface.csproj" Id="60b5a481-fb53-454d-a665-c66172c3f0f8" />
   </Folder>
-  <Folder Name="/Base/Library/" />
+  <Folder Name="/Base/Library/">
+    <Project Path="USS.Base.Extension/USS.Base.Extension.csproj" Id="1d1b2074-83e9-4e64-a012-83a6ca21a96f" />
+  </Folder>
   <Folder Name="/Kanakkedu/" />
   <Folder Name="/Kanakkedu/Interface/">
     <Project Path="USS.Kanakkedu.Data.Interface/USS.Kanakkedu.Data.Interface.csproj" Id="a0d54ddd-322b-4f4f-81bc-27a7d3b32e0c" />
@@ -13,7 +15,6 @@
   <Folder Name="/Kanakkedu/Library/">
     <Project Path="USS.Kanakkedu.Business/USS.Kanakkedu.Business.csproj" Id="ce920532-7b24-47ec-bcbe-7ba1999b3871" />
     <Project Path="USS.Kanakkedu.Data/USS.Kanakkedu.Data.csproj" Id="b052c98d-eaf4-4c6c-b28f-524f208dd625" />
-    <Project Path="USS.Kanakkedu.Extension/USS.Kanakkedu.Extension.csproj" Id="42e7b206-46b1-47e2-9bd4-f8529360d29c" />
     <Project Path="USS.Kanakkedu.Model/USS.Kanakkedu.Model.csproj" Id="a83a7f19-2015-40ab-aaaa-29826048d4b5" />
   </Folder>
   <Folder Name="/Kanakkedu/Projects/">

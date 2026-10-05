@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using USS.Kanakkedu.ClientService;
-using USS.Kanakkedu.Extension;
+using USS.Base.Extension;
 
 namespace USS.Kanakkedu.Web.Components.Pages
 {
