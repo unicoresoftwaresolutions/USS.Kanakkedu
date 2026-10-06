@@ -1,37 +1,15 @@
 ﻿@page "/"
+
+@inherits BaseWeb<Model.Fund>
+
 @rendermode InteractiveServer
 
 <PageTitle>Home</PageTitle>
 
-<Fund />
-
-<button @onclick="e => IsModalOpened = true">Open modal</button>
-
-@if (SelectedButton != null)
+@foreach(var f in Datas)
 {
-    <p>You have selected @SelectedButton</p>
+    <p>@f.data.Id</p>
+   
 }
 
-@* 👇 Use the modal component *@
-<Modal @bind-Open="IsModalOpened" Close="OnClose">
-    <form method="dialog">
-        <p>
-            Do you really want to do this?
-        </p>
-        <menu>
-            <button value="save">test123</button>
-            <button value="cancel">Cancel</button>
-            <button value="confirm">I'm sure</button>
-        </menu>
-    </form>
-</Modal>
-
-@code {
-    public bool IsModalOpened { get; set; }
-    public string SelectedButton { get; set; }
-
-    void OnClose(string value)
-    {
-        SelectedButton = value;
-    }
-}
+<USS_Grid Values="Datas" />
