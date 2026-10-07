@@ -11,12 +11,13 @@ namespace USS.Base.Web
         [Parameter]
         public string Title { get; set; }
 
-        public TypeInfo type { get; set; }
+        public Type type { get; set; }
         public USS_Grid()
         {
-            type = typeof(T).GetTypeInfo();
+            type = typeof(T);
+            var t1 = type.GetTypeInfo();
 
-            type.d
+            if(t1.IsGenericType)  type = t1.GenericTypeArguments[0];
         }
     }
 }
