@@ -1,5 +1,81 @@
-﻿<h3>FundGrid</h3>
+﻿@page "/fund"
+@inherits BaseWeb<Fund>
 
-@code {
+@rendermode InteractiveServer
 
-}
+
+<USS_Grid Values="Datas" />
+
+
+
+<table class="table table-striped table-hover table-bordered">
+    <thead class="table-primary">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">IsActive</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    @if (Datas?.Count > 0)
+    {
+        <tbody>
+
+            @foreach (var fund in Datas)
+            {
+                <tr>
+                    <td>@fund.data?.Id</td>
+                    <td>
+                        @if (fund.IsEdit)
+                        {
+                            <input @bind="fund.EditData.Name" type="text" class="form-control" placeholder="Enter your name" aria-label="Name" />
+                        }
+                        else
+                        {
+                            @fund.data.Name
+                        }
+                    </td>
+                    <td>@fund.data.IsActive</td>
+                    <td>
+                        @if (fund.IsEdit)
+                        {
+                            <button class="btn btn-primary" @onclick=@( x => Save(fund))>Save</button>
+                            <button class="btn btn-danger" @onclick=@( x => Cancel(fund))>Cancel</button>
+                        }
+                        else
+                        {
+                            <button class="btn btn-primary" @onclick=@( x => Edit(fund))>Edit</button>
+                            <button class="btn btn-danger" @onclick=@( x => Delete(fund))>Delete</button>
+                        }
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    }
+
+    <tfoot>
+        @if ((Datas?.Count(x => x.data.Id == default) ?? 0) == 0)
+        {
+            <tr>
+                <td colspan="4"><button class="btn btn-primary" @onclick="Add">Add Fund</button></td>
+            </tr>
+        }
+
+    </tfoot>
+</table>
+
+
+<Modal @bind-Open="IsDeleteModal" Close="OnDeleteClose">
+    <form method="dialog">
+        <p>
+            Do you really want to delete this?
+        </p>
+        <menu>
+            <button value="Ok" class="btn btn-primary">Ok</button>
+            <button value="cancel" class="btn btn-danger">Cancel</button>
+        </menu>
+    </form>
+</Modal>
+
+    

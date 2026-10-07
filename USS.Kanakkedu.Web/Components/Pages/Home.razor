@@ -1,15 +1,8 @@
 ﻿@page "/"
 
-@inherits BaseWeb<Model.Fund>
-
-@rendermode InteractiveServer
 
 <PageTitle>Home</PageTitle>
 
-@foreach(var f in Datas)
-{
-    <p>@f.data.Id</p>
-   
-}
+<FundGrid />
 
-<USS_Grid Values="Datas" />
+<JournalTypeGrid />
