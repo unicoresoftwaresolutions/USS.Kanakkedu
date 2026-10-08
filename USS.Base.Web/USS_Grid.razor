@@ -1,3 +1,43 @@
 ﻿@typeparam T
+@using USS.Base.Extension
 
-<div>Count: @Values.Count() - @(type.Name)</div>
+<table class="table table-striped table-hover table-bordered">
+    
+    <thead class="table-primary">
+        <tr>
+            @foreach (var p in type.GetProperties())
+            {
+                <th>@p.Name</th>
+            }            
+        </tr>
+    </thead>
+    @if (Values?.Count > 0)
+    {
+        <tbody>
+
+            @foreach (var fund in Values)
+            {
+
+                var data = fund.GetPropertyValue("data");
+
+                <tr>
+                    @foreach (var p in type.GetProperties())
+                    {
+                        <td>@data?.GetPropertyValue(p.Name)</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    }
+    <tfoot>
+        @if ((Values?.Count(x => x.GetPropertyValue("data").GetPropertyValue("Id") == default) ?? 0) == 0)
+        {
+            <tr>
+                <td colspan="4"><button class="btn btn-primary" @onclick="Add">Add Fund</button></td>
+            </tr>
+        }
+
+    </tfoot>
+    
+</table>
+
