@@ -8,7 +8,11 @@
             @foreach (var p in type.GetProperties())
             {
                 <th>@p.Name</th>
-            }            
+            }
+            @if (IsAction)
+            {
+                <th>Action</th>
+            }        
         </tr>
     </thead>
     @if (Values?.Count > 0)
@@ -25,15 +29,23 @@
                     {
                         <td>@data?.GetPropertyValue(p.Name)</td>
                     }
+
+                    @if (IsAction)
+                    {
+                        <td>
+                            <button class="btn btn-primary" @onclick="() => {  }">Edit</button>
+                            <button class="btn btn-danger" @onclick="() => {  }">Delete</button>
+                        </td>
+                    }
                 </tr>
             }
         </tbody>
     }
     <tfoot>
-        @if ((Values?.Count(x => x.GetPropertyValue("data").GetPropertyValue("Id") == default) ?? 0) == 0)
+        @if (IsAction && (Values?.Count(x => x.GetPropertyValue("data").GetPropertyValue("Id") == default) ?? 0) == 0)
         {
             <tr>
-                <td colspan="4"><button class="btn btn-primary" @onclick="Add">Add Fund</button></td>
+                <td colspan="4"><button class="btn btn-primary" @onclick="()=>{}">Add Fund</button></td>
             </tr>
         }
 

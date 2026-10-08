@@ -11,6 +11,8 @@ namespace USS.Base.Web
         [Parameter]
         public string Title { get; set; }
 
+        [Parameter]
+        public bool IsAction { get; set; }
         public Type type { get; set; }
         public USS_Grid()
         {
