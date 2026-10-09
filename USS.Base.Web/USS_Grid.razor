@@ -33,19 +33,30 @@
                     @if (IsAction)
                     {
                         <td>
-                            <button class="btn btn-primary" @onclick="() => {  }">Edit</button>
-                            <button class="btn btn-danger" @onclick="() => {  }">Delete</button>
+                            @if ((bool)fund.GetPropertyValue("IsEdit"))
+                            {
+                                <button class="btn btn-primary" @onclick=@( x => OnSave.InvokeAsync(fund))>Save</button>
+                                <button class="btn btn-danger" @onclick=@( x => { OnCancel.InvokeAsync(fund);})>Cancel</button>
+                            }
+                            else
+                            {
+                                <button class="btn btn-primary" @onclick=@( x => OnEdit.InvokeAsync(fund))>Edit</button>
+                                <button class="btn btn-danger" @onclick=@( x => OnDelete.InvokeAsync(fund))>Delete</button>
+                            }
                         </td>
+
+
+
                     }
                 </tr>
             }
         </tbody>
     }
     <tfoot>
-        @if (IsAction && (Values?.Count(x => x.GetPropertyValue("data").GetPropertyValue("Id") == default) ?? 0) == 0)
+        @if (IsAction && (Values?.Count(x => (Guid)x.GetPropertyValue("data").GetPropertyValue("Id") == default) ?? 0) == 0)
         {
             <tr>
-                <td colspan="4"><button class="btn btn-primary" @onclick="()=>{}">Add Fund</button></td>
+                <td colspan="4"><button class="btn btn-primary" @onclick="@( x=>{ OnAdd.InvokeAsync(); })">Add Fund</button></td>
             </tr>
         }
 

@@ -13,7 +13,26 @@ namespace USS.Base.Web
 
         [Parameter]
         public bool IsAction { get; set; }
+
+
+        [Parameter]
+        public EventCallback OnAdd { get; set; }
+
+        [Parameter]
+        public EventCallback<T> OnCancel { get; set; }
+
+        [Parameter]
+        public EventCallback<T> OnEdit { get; set; }
+
+
+        [Parameter]
+        public EventCallback<T> OnDelete { get; set; }
+
+
+        [Parameter]
+        public EventCallback<T> OnSave { get; set; }
         public Type type { get; set; }
+        
         public USS_Grid()
         {
             type = typeof(T);

@@ -4,7 +4,7 @@
 @rendermode InteractiveServer
 
 
-<USS_Grid Values="Datas" IsAction ="true" />
+<USS_Grid Values="Datas" IsAction ="true" OnAdd="@( x=>{ Add(); })" OnCancel="@( x=>{ Cancel(x); })" OnEdit="@( x=>{ Edit(x); })" OnDelete="@( x=>{ Delete(x); })" OnSave="@( x=>{ Save(x); })"/>
 
 
 
