@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "USS.Tool.GenCRUD": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Users\\Bala\\source\\repos\\unicoresoftwaresolutions\\USS.Kanakkedu\\USS.Kanakkedu.SQL\\USS.Kanakkedu.SQL.sqlproj\" \"00_JournalType.sql\""
+    }
+  }
+}
