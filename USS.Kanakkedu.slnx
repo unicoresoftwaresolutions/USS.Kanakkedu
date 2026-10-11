@@ -39,4 +39,7 @@
   <Folder Name="/Kanakkedu/Test/">
     <Project Path="USS.Kanakkedu.Test.Console/USS.Kanakkedu.Test.Console.csproj" Id="d0e954e1-c9d8-4aed-a482-9151bc647e64" />
   </Folder>
+  <Folder Name="/Tool/">
+    <Project Path="USS.Tool.GenCRUD/USS.Tool.GenCRUD.csproj" Id="7c3ccc34-af8d-4bd9-96c1-49fbef60a7d1" />
+  </Folder>
 </Solution>
