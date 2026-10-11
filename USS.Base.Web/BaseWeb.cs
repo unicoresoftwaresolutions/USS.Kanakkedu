@@ -10,12 +10,12 @@ namespace USS.Base.Web
         protected HttpClient http { get; set; }
         protected BaseService<T> service { get; set; }
         protected bool IsDeleteModal { get; set; } = false;
-        protected List<BaseModel<T>> Datas { get; set; }
+        protected List<BaseGridModel<T>> Datas { get; set; }
         protected Guid Id { get; set; }
         public BaseWeb(HttpClient http)
         {
             this.http = http;
-            Datas = new List<BaseModel<T>>();
+            Datas = new List<BaseGridModel<T>>();
             service = new BaseService<T>(http);
         }
 
@@ -36,26 +36,26 @@ namespace USS.Base.Web
         public async Task GetData()
         {
             var result = await service.AllAsync();
-            Datas = result.Select(x => new BaseModel<T>() { data = x, IsEdit = false }).ToList();
+            Datas = result.Select(x => new BaseGridModel<T>() { data = x, IsEdit = false }).ToList();
             StateHasChanged();
         }
         public async void Add()
         {
-            BaseModel<T> data = new() { IsEdit = true, data = new T(), EditData = new T() };
+            BaseGridModel<T> data = new() { IsEdit = true, data = new T(), EditData = new T() };
             Datas.Add(data);
         }
-        public async void Edit(BaseModel<T> f)
+        public async void Edit(BaseGridModel<T> f)
         {
             f.IsEdit = true;
             var m = f.data.GetType().GetMethod("Clone");
             f.EditData = (T)m.Invoke(f.data, null);
         }
-        public async void Delete(BaseModel<T> f)
+        public async void Delete(BaseGridModel<T> f)
         {
             Id = Guid.Parse(f.data.GetPropertyValue(nameof(Id)).ToString());
             IsDeleteModal = true;
         }
-        public async void Save(BaseModel<T> f)
+        public async void Save(BaseGridModel<T> f)
         {
             f.IsEdit = false;
             if (Guid.Parse(f.data.GetPropertyValue(nameof(Id)).ToString()) == default)
@@ -70,7 +70,7 @@ namespace USS.Base.Web
             await GetData();
 
         }
-        public void Cancel(BaseModel<T> f)
+        public void Cancel(BaseGridModel<T> f)
         {
 
             if (Guid.Parse(f.data.GetPropertyValue(nameof(Id)).ToString()) == default) Datas.Remove(f);

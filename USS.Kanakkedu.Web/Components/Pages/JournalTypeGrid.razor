@@ -2,10 +2,16 @@
 
 @inherits BaseWeb<JournalType>
 
+@rendermode InteractiveServer
+
 <h3>JournalTypeGrid</h3>
 
-<USS_Grid Values="Datas" IsAction="true" />
-
-@code {
-
-}
+<USS_Grid @bind-Values="Datas" 
+          IsAction="true" 
+          IdVisible="false"
+          OnAdd="@( x => { Add(); })" 
+          OnCancel="@( (BaseGridModel<JournalType> x) => { Cancel(x); })"
+          OnEdit="@( (BaseGridModel<JournalType> x) => { Edit(x); })"
+          OnSave="@( (BaseGridModel<JournalType> x) => { Save(x); })"
+          OnDelete="@( (BaseGridModel<JournalType> x) => { Delete(x); })"
+          OnDeleteClose="@( ( string x)=>{ OnDeleteClose(x);})" />

@@ -4,7 +4,15 @@
 @rendermode InteractiveServer
 
 
-<USS_Grid Values="Datas" IsAction ="true" OnAdd="@( x=>{ Add(); })" OnCancel="@( x=>{ Cancel(x); })" OnEdit="@( x=>{ Edit(x); })" OnDelete="@( x=>{ Delete(x); })" OnSave="@( x=>{ Save(x); })"/>
+<USS_Grid @bind-Values="Datas" 
+        IsAction="true" 
+        IdVisible="false"
+        OnAdd="@( x => { Add(); })" 
+        OnCancel="@( (BaseGridModel<Fund> x) => { Cancel(x); })" 
+        OnEdit="@( (BaseGridModel<Fund> x) => { Edit(x); })" 
+        OnSave="@( (BaseGridModel<Fund> x) => { Save(x); })"
+        OnDelete="@( (BaseGridModel<Fund> x) => { Delete(x); })"
+        OnDeleteClose="@( ( string x)=>{ OnDeleteClose(x);})" />
 
 
 
@@ -66,16 +74,5 @@
 </table>
 
 
-<Modal @bind-Open="IsDeleteModal" Close="OnDeleteClose">
-    <form method="dialog">
-        <p>
-            Do you really want to delete this?
-        </p>
-        <menu>
-            <button value="Ok" class="btn btn-primary">Ok</button>
-            <button value="cancel" class="btn btn-danger">Cancel</button>
-        </menu>
-    </form>
-</Modal>
 
     

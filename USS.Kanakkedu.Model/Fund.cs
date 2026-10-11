@@ -1,16 +1,10 @@
-﻿namespace USS.Kanakkedu.Model
+﻿using USS.Base.Model;
+
+namespace USS.Kanakkedu.Model
 {
-    public class Fund : ICloneable
+    public class Fund : BaseEntityModel
     {
-        public Guid Id { get; set; }
         public string Name { get; set; }
-        public bool IsActive { get; set; }
-
-        public object Clone()
-        {
-            return this.MemberwiseClone();
-        }
-
-
+        public bool IsActive { get; set; }        
     }
 }

@@ -8,12 +8,17 @@ namespace USS.Base.Web
         [Parameter]
         public List<T> Values { get; set; }
 
+        protected Guid Id { get; set; }
+        protected bool IsDeleteModal { get; set; } = false;
+
+        [Parameter]
+        public bool IdVisible { get; set; } = true;
+
         [Parameter]
         public string Title { get; set; }
 
         [Parameter]
         public bool IsAction { get; set; }
-
 
         [Parameter]
         public EventCallback OnAdd { get; set; }
@@ -28,11 +33,15 @@ namespace USS.Base.Web
         [Parameter]
         public EventCallback<T> OnDelete { get; set; }
 
+        [Parameter]
+        public EventCallback<string> OnDeleteClose { get; set; }
 
         [Parameter]
         public EventCallback<T> OnSave { get; set; }
+        [Parameter]
+        public EventCallback<List<T>> ValuesChanged { get; set; }
         public Type type { get; set; }
-        
+
         public USS_Grid()
         {
             type = typeof(T);
