@@ -47,6 +47,25 @@ namespace USS.Tool.GenCRUD
             }
         }
 
+        public static XDocument SqlProjDocument
+        {
+            get
+            {
+                if (field == null)
+                {
+                    try
+                    {
+                        field = XDocument.Load(SQLProjFile);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error loading .sqlproj file: {ex.Message}");
+                    }
+                }
+                return field;
+            }
+        }
+
         public static List<string> SqlFiles
         {
             get
@@ -59,8 +78,7 @@ namespace USS.Tool.GenCRUD
 
                     try
                     {
-                        XDocument doc = XDocument.Load(SQLProjFile);
-                        var projSqlFiles = doc.Descendants()
+                        var projSqlFiles = SqlProjDocument.Descendants()
                                   .Where(e => e.Name.LocalName == "Build" || e.Name.LocalName == "None")
                                   .Select(e => e.Attribute("Include")?.Value)
                                   .Where(path => !string.IsNullOrWhiteSpace(path) && path.EndsWith(".sql", StringComparison.OrdinalIgnoreCase))
@@ -97,6 +115,12 @@ namespace USS.Tool.GenCRUD
             }
         }
 
+        public static string SQLRootNameSpace
+        {
+            get => SqlProjDocument.Descendants().Where(x => x.Name.LocalName == "RootNamespace").FirstOrDefault()?.Value??string.Empty;
+        }
+
+        public static string RootNamespace { get => SQLRootNameSpace.Substring(0, SQLRootNameSpace.Length - 4); }
         public static bool IsValid
         {
             get
@@ -129,6 +153,23 @@ namespace USS.Tool.GenCRUD
                     }
                 }
                 return true;
+            }
+        }
+
+        public static List<SQLTable> tables
+        {
+            get
+            {
+                if (field == null)
+                {
+                    field = new List<SQLTable>();
+                    foreach (var sqlfile in SqlFiles)
+                    {
+                        SQLTable table = new SQLTable(sqlfile);
+                        field.Add(table);
+                    }
+                }
+                return field;
             }
         }
     }
