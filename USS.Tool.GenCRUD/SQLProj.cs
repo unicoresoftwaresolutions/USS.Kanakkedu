@@ -46,6 +46,17 @@ namespace USS.Tool.GenCRUD
                 return field??"";
             }
         }
+        public static string ParentDir
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(field))
+                {
+                    field = Directory.GetParent(sqlProjFileDir)?.FullName ?? "";
+                }
+                return field;
+            }
+        }
 
         public static XDocument SqlProjDocument
         {
