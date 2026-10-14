@@ -7,16 +7,14 @@ namespace USS.Base.Web
 {
     public class BaseWeb<T> : ComponentBase where T : new()
     {
-        protected HttpClient http { get; set; }
         protected BaseService<T> service { get; set; }
         protected bool IsDeleteModal { get; set; } = false;
         protected List<BaseGridModel<T>> Datas { get; set; }
         protected Guid Id { get; set; }
-        public BaseWeb(HttpClient http)
+        public BaseWeb(BaseService<T> service)
         {
-            this.http = http;
+            this.service = service;
             Datas = new List<BaseGridModel<T>>();
-            service = new BaseService<T>(http);
         }
 
         protected override async Task OnInitializedAsync()

@@ -12,16 +12,30 @@ namespace USS.Tool.GenCRUD
         public List<ProjectInfo> Projects 
         {
             get
-            {                
-                return field ??= ProjectNames.Select(x => new ProjectInfo($"{Name}.{x}", SQLProj.ParentDir, x)).ToList();
+            { 
+                if(field== null)
+                {
+                    field = new List<ProjectInfo>();
+                    field.Add(new ProjectInfo(this, ProjectNames.Model));
+                    field.Add(new ProjectInfo(this, ProjectNames.DataInterface));
+                    field.Add(new ProjectInfo(this, ProjectNames.Data));
+                    field.Add(new ProjectInfo(this, ProjectNames.BusinessInterface));
+                    field.Add(new ProjectInfo(this, ProjectNames.Business));
+                    field.Add(new ProjectInfo(this, ProjectNames.ApiService));
+                    field.Add(new ProjectInfo(this, ProjectNames.Service));
+                    field.Add(new ProjectInfo(this, ProjectNames.Web));
+                    
+                }
+                return field;
             }
         } 
 
-        private List<string> ProjectNames { get; set; } = new List<string>() { "Model", "Data.Interface","Data", "Business.Interface", "Business" , "Service", "ApiService", "Web" };
+        
 
         public SolutionInfo(string Name)
         {
             this.Name = Name;
+            this.Path = $"{SQLProj.ParentDir}";
         }
     }
 }

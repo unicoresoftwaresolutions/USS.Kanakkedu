@@ -18,6 +18,9 @@ builder.Services.AddHttpClient<KanakkeduHTTPClient>(client => {
     client.BaseAddress = new("https+http://usskanakkedu/API/");
 });
 
+builder.Services.AddScoped<FundService>();
+builder.Services.AddScoped<JournalTypeService>();
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
