@@ -2,7 +2,7 @@
 
 namespace USS.Kanakkedu.Model
 {
-    public class JournalType : BaseEntityModel
+    public partial class JournalType : BaseEntityModel
     {
         public string Code { get; set; }
         public string Name { get; set; }

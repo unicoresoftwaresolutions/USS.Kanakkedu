@@ -2,7 +2,7 @@
 
 namespace USS.Kanakkedu.Model
 {
-    public class Fund : BaseEntityModel
+    public partial class Fund : BaseEntityModel
     {
         public string Name { get; set; }
         public bool IsActive { get; set; }        

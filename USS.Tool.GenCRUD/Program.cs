@@ -1,5 +1,6 @@
 ﻿using USS.Tool.GenCRUD;
 
-
-
-Console.WriteLine("Welcome to USS.Tool.GenCRUD!");
+foreach(var projModel in SolutionInfo.ProjectModels)
+{
+    Console.WriteLine(projModel.ModelClass);
+}

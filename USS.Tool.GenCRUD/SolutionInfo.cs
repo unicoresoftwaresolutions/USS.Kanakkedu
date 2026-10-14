@@ -9,6 +9,45 @@ namespace USS.Tool.GenCRUD
         public static string Name { get; set; } = SQLProj.RootNamespace;
         public static string Path { get; set; } = SQLProj.ParentDir;
         public static string File { get; set; }
+
+        public static List<SQLFieldType> FieldTypes
+        {
+            get
+            {
+                
+                if (field == null)
+                {
+                    field = new List<SQLFieldType>();
+                    
+                    field.Add(new SQLFieldType() { DataType = "UNIQUEIDENTIFIER", FieldType = "Guid" });
+
+                    field.Add(new SQLFieldType() { DataType = "NVARCHAR", FieldType = "string" });
+                    field.Add(new SQLFieldType() { DataType = "VARCHAR", FieldType = "string" });
+                    field.Add(new SQLFieldType() { DataType = "CHAR", FieldType = "string" });
+                    field.Add(new SQLFieldType() { DataType = "TEXT", FieldType = "string" });
+                    
+                    field.Add(new SQLFieldType() { DataType = "DATETIME", FieldType = "DateTime" });
+                    field.Add(new SQLFieldType() { DataType = "DATE", FieldType = "DateOnly" });
+
+                    field.Add(new SQLFieldType() { DataType = "BIT", FieldType = "bool" });
+                    
+                    field.Add(new SQLFieldType() { DataType = "TINYINT", FieldType = "byte" });
+                    field.Add(new SQLFieldType() { DataType = "SMALLINT", FieldType = "short" });
+                    field.Add(new SQLFieldType() { DataType = "INT", FieldType = "int" });
+                    field.Add(new SQLFieldType() { DataType = "BIGINT", FieldType = "long" });
+                    
+                    field.Add(new SQLFieldType() { DataType = "FLOAT", FieldType = "float" });
+                    field.Add(new SQLFieldType() { DataType = "REAL", FieldType = "float" });
+                    field.Add(new SQLFieldType() { DataType = "DECIMAL", FieldType = "decimal" });
+                    field.Add(new SQLFieldType() { DataType = "SMALLMONEY", FieldType = "decimal" });
+                    field.Add(new SQLFieldType() { DataType = "MONEY", FieldType = "decimal" });
+                    
+                    field.Add(new SQLFieldType() { DataType = "VARBINARY", FieldType = "byte[]" });
+                    field.Add(new SQLFieldType() { DataType = "BINARY", FieldType = "byte[]" });
+                }
+                return field;
+            }
+        }
         public static List<ProjectInfo> Projects 
         {
             get
@@ -41,6 +80,19 @@ namespace USS.Tool.GenCRUD
                     {
                         field.Add(new ProjectModel(table));
                     });                    
+                }
+                
+                var RefFields = field.Where(x => x.Table.Fields.Any(f => f.HasForeignKey)).ToList();
+                foreach(var projModel in RefFields)
+                {
+                    if(projModel.LookUpTables==null) projModel.LookUpTables = new List<SQLTable>();
+                    foreach (var reffield in projModel.References)
+                    {
+                        var proj = field.FirstOrDefault(x => x.ClassName == reffield.Reference.TableName);
+                        if (proj == null) continue;
+                        if (proj.LookUpTables == null) proj.LookUpTables = new List<SQLTable>();
+                        proj.LookUpTables.Add(projModel.Table);
+                    }
                 }
                 return field;
             }
