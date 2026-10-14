@@ -97,5 +97,13 @@ namespace USS.Tool.GenCRUD
                 return field;
             }
         }
+
+        public static void GenerateProjectModel(bool IsOverRide = true)
+        {
+            foreach (var projModel in SolutionInfo.ProjectModels)
+            {
+                projModel.GenerateModel(IsOverRide);
+            }
+        }
     }
 }

@@ -10,13 +10,24 @@ namespace USS.Tool.GenCRUD
         {
             this.Table = table;
         }
+        public string FilePath
+        {
+            get
+            {
+                if (field == null)
+                {
+                    field = $"{project.Path}\\Models";
+                }
+                return field;
+            }
+        }
         public string FileName
         {
             get
             {
                 if(field==null)
                 {
-                    field = $"{project.Path}\\Models\\{Table.TableName}.cs";
+                    field = $"{FilePath}\\{Table.TableName}.cs";
                 }
                 return field;
             }
@@ -86,6 +97,20 @@ namespace USS.Tool.GenCRUD
                 }
                 return field;
             }
+        }
+
+        public bool GenerateModel(bool IsOverRide = true)
+        {
+            if (!Directory.Exists(FilePath))
+            {
+                Directory.CreateDirectory(FilePath);
+            }
+            if (File.Exists(FileName) && !IsOverRide)
+            {
+                return false;
+            }
+            File.WriteAllText(FileName, ModelClass);
+            return true;
         }
     }
 }
