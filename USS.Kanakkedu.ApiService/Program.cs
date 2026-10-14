@@ -17,7 +17,7 @@ builder.Services.AddProblemDetails();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
-builder.Services.AddDbContext<KanakkeduDBContext>(option => { 
+builder.Services.AddDbContext<USSKanakkeduDBContext>(option => { 
 
         option.UseSqlServer(builder.Configuration.GetConnectionString("KanakkeduDBConnection"));
 

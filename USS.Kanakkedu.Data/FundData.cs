@@ -4,9 +4,9 @@ using USS.Kanakkedu.Model;
 
 namespace USS.Kanakkedu.Data
 {
-    public class FundData : BaseData<Fund>, IFundData
+    public partial class FundData : BaseData<Fund>, IFundData
     {
-        public FundData(KanakkeduDBContext dBContext) : base(dBContext)
+        public FundData(USSKanakkeduDBContext dBContext) : base(dBContext)
         {
         }
     }

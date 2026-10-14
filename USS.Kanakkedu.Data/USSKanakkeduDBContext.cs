@@ -3,9 +3,9 @@ using USS.Kanakkedu.Model;
 
 namespace USS.Kanakkedu.Data
 {
-    public class KanakkeduDBContext:DbContext 
+    public class USSKanakkeduDBContext:DbContext 
     {
-        public KanakkeduDBContext(DbContextOptions<KanakkeduDBContext> options)
+        public USSKanakkeduDBContext(DbContextOptions<USSKanakkeduDBContext> options)
             : base(options)
         {
             

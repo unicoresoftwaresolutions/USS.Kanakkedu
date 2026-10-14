@@ -4,9 +4,9 @@ using USS.Kanakkedu.Model;
 
 namespace USS.Kanakkedu.Data
 {
-    public class JournalTypeData : BaseData<JournalType>, IJournalTypeData
+    public partial class JournalTypeData : BaseData<JournalType>, IJournalTypeData
     {
-        public JournalTypeData(KanakkeduDBContext dBContext) : base(dBContext)
+        public JournalTypeData(USSKanakkeduDBContext dBContext) : base(dBContext)
         {
         }
     }
