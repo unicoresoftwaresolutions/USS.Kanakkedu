@@ -4,38 +4,46 @@ using System.Text;
 
 namespace USS.Tool.GenCRUD
 {
-    public class SolutionInfo
+    public static class SolutionInfo
     {
-        public string Name { get; set; }
-        public string Path { get; set; }
-        public string File { get; set; }
-        public List<ProjectInfo> Projects 
+        public static string Name { get; set; } = SQLProj.RootNamespace;
+        public static string Path { get; set; } = SQLProj.ParentDir;
+        public static string File { get; set; }
+        public static List<ProjectInfo> Projects 
         {
             get
             { 
                 if(field== null)
                 {
                     field = new List<ProjectInfo>();
-                    field.Add(new ProjectInfo(this, ProjectNames.Model));
-                    field.Add(new ProjectInfo(this, ProjectNames.DataInterface));
-                    field.Add(new ProjectInfo(this, ProjectNames.Data));
-                    field.Add(new ProjectInfo(this, ProjectNames.BusinessInterface));
-                    field.Add(new ProjectInfo(this, ProjectNames.Business));
-                    field.Add(new ProjectInfo(this, ProjectNames.ApiService));
-                    field.Add(new ProjectInfo(this, ProjectNames.Service));
-                    field.Add(new ProjectInfo(this, ProjectNames.Web));
-                    
+                    field.Add(new ProjectInfo(ProjectNames.Model));
+                    field.Add(new ProjectInfo(ProjectNames.DataInterface));
+                    field.Add(new ProjectInfo(ProjectNames.Data));
+                    field.Add(new ProjectInfo(ProjectNames.BusinessInterface));
+                    field.Add(new ProjectInfo(ProjectNames.Business));
+                    field.Add(new ProjectInfo(ProjectNames.ApiService));
+                    field.Add(new ProjectInfo(ProjectNames.Service));
+                    field.Add(new ProjectInfo(ProjectNames.Web));
                 }
                 return field;
             }
         } 
 
-        
-
-        public SolutionInfo(string Name)
+        public static List<ProjectModel> ProjectModels
         {
-            this.Name = Name;
-            this.Path = $"{SQLProj.ParentDir}";
+            get
+            {
+                if (field == null)
+                {
+                    ProjectModel.project = Projects.FirstOrDefault(x=> x.Name==ProjectNames.Model);
+                    field = new List<ProjectModel>();
+                    SQLProj.tables.ForEach(table =>
+                    {
+                        field.Add(new ProjectModel(table));
+                    });                    
+                }
+                return field;
+            }
         }
     }
 }

@@ -3,14 +3,16 @@
     public class ProjectInfo
     {
         public string Name { get; set; }
+        public string ProjectName { get; set; }
         public string Path { get; set; }
         public string File { get; set; }
 
-        public ProjectInfo(SolutionInfo solution, string name)
+        public ProjectInfo(string name)
         {
-            this.Name = $"{solution.Name}.{name}";
-            this.Path = $"{solution.Path}\\{this.Name}";
-            this.File = $"{this.Path}\\{this.Name}.csproj";
+            this.Name = name;
+            this.ProjectName = $"{SolutionInfo.Name}.{name}";
+            this.Path = $"{SolutionInfo.Path}\\{this.ProjectName}";
+            this.File = $"{this.Path}\\{this.ProjectName}.csproj";
         }
     }
 }

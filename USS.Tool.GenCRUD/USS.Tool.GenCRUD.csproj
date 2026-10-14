@@ -8,4 +8,16 @@
     <AssemblyName>GenCRUD</AssemblyName>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.CodeDom" Version="10.0.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Templates\" />
+  </ItemGroup>
+
 </Project>
