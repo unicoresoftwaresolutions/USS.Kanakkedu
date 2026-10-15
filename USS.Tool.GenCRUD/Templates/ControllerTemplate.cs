@@ -71,7 +71,7 @@ namespace USS.Tool.GenCRUD.Templates
             
             #line default
             #line hidden
-            this.Write("Controller(");
+            this.Write("Controller(I");
             
             #line 18 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.ClassName));
