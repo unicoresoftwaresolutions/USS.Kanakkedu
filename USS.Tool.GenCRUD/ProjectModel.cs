@@ -81,6 +81,19 @@ namespace USS.Tool.GenCRUD
                 return field;
             }
         }
+
+        public string FilePathController
+        {
+            get
+            {
+                if (field == null)
+                {
+                    field = $"{project.RootPath}\\{RootNamespace}.ApiService\\Controllers";
+                }
+                return field;
+            }
+        }
+
         public string FileNameModel
         {
             get
@@ -147,6 +160,18 @@ namespace USS.Tool.GenCRUD
                 if (field == null)
                 {
                     field = $"{FilePathService}\\{Table.TableName}Service.cs";
+                }
+                return field;
+            }
+        }
+
+        public string FileNameController
+        {
+            get
+            {
+                if (field == null)
+                {
+                    field = $"{FilePathController}\\{Table.TableName}Controller.cs";
                 }
                 return field;
             }
@@ -309,6 +334,20 @@ namespace USS.Tool.GenCRUD
             }
         }
 
+
+        public string Controller
+        {
+            get
+            {
+                if (field == null)
+                {
+                    ControllerTemplate model = new ControllerTemplate(this);
+                    field = model.TransformText();
+                }
+                return field;
+            }
+        }
+
         public bool GenerateDataInterface(bool IsOverRide = false)
         {
             if (!Directory.Exists(FilePathDataInterface))
@@ -373,6 +412,21 @@ namespace USS.Tool.GenCRUD
                 return false;
             }
             File.WriteAllText(FileNameService, Service);
+            return true;
+        }
+
+
+        public bool GenerateController(bool IsOverRide = false)
+        {
+            if (!Directory.Exists(FilePathController))
+            {
+                Directory.CreateDirectory(FilePathController);
+            }
+            if (File.Exists(FileNameController) && !IsOverRide)
+            {
+                return false;
+            }
+            File.WriteAllText(FileNameController, Controller);
             return true;
         }
     }
