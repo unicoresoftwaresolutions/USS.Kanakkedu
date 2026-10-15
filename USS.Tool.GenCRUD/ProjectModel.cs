@@ -10,7 +10,7 @@ namespace USS.Tool.GenCRUD
         {
             this.Table = table;
         }
-        public string FilePath
+        public string FilePathModel
         {
             get
             {
@@ -21,13 +21,50 @@ namespace USS.Tool.GenCRUD
                 return field;
             }
         }
-        public string FileName
+
+        public string FilePathDataInterface
+        {
+            get
+            {
+                if (field == null)
+                {
+                    field = $"{project.RootPath}\\{RootNamespace}.Data.Interface";
+                }
+                return field;
+            }
+        }
+        public string FileNameModel
         {
             get
             {
                 if(field==null)
                 {
-                    field = $"{FilePath}\\{Table.TableName}.cs";
+                    field = $"{FilePathModel}\\{Table.TableName}.cs";
+                }
+                return field;
+            }
+        }
+
+
+        public string FileNameDataInterface
+        {
+            get
+            {
+                if (field == null)
+                {
+                    field = $"{FilePathDataInterface}\\I{Table.TableName}.cs";
+                }
+                return field;
+            }
+        }
+
+        public string RootNamespace
+        {
+            get
+            {
+                if (field == null)
+                {
+                    field = $"{project.Namespace}";
                 }
                 return field;
             }
@@ -99,17 +136,45 @@ namespace USS.Tool.GenCRUD
             }
         }
 
-        public bool GenerateModel(bool IsOverRide = true)
+        public bool GenerateModel(bool IsOverRide = false)
         {
-            if (!Directory.Exists(FilePath))
+            if (!Directory.Exists(FilePathModel))
             {
-                Directory.CreateDirectory(FilePath);
+                Directory.CreateDirectory(FilePathModel);
             }
-            if (File.Exists(FileName) && !IsOverRide)
+            if (File.Exists(FileNameModel) && !IsOverRide)
             {
                 return false;
             }
-            File.WriteAllText(FileName, ModelClass);
+            File.WriteAllText(FileNameModel, ModelClass);
+            return true;
+        }
+
+
+        public string DataInterface
+        {
+            get
+            {
+                if (field == null)
+                {
+                    DataInterfaceTemplate model = new DataInterfaceTemplate(this);
+                    field = model.TransformText();
+                }
+                return field;
+            }
+        }
+
+        public bool GenerateDataInterface(bool IsOverRide = false)
+        {
+            if (!Directory.Exists(FilePathDataInterface))
+            {
+                Directory.CreateDirectory(FilePathDataInterface);
+            }
+            if (File.Exists(FileNameDataInterface) && !IsOverRide)
+            {
+                return false;
+            }
+            File.WriteAllText(FileNameDataInterface, DataInterface);
             return true;
         }
     }

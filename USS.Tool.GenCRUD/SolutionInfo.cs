@@ -98,11 +98,12 @@ namespace USS.Tool.GenCRUD
             }
         }
 
-        public static void GenerateProjectModel(bool IsOverRide = true)
+        public static void Generate(bool IsOverRide = false)
         {
             foreach (var projModel in SolutionInfo.ProjectModels)
             {
                 projModel.GenerateModel(IsOverRide);
+                projModel.GenerateDataInterface(IsOverRide);
             }
         }
     }

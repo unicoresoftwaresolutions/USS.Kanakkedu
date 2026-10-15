@@ -1,4 +1,4 @@
 ﻿using USS.Tool.GenCRUD;
 
 
-SolutionInfo.GenerateProjectModel();
+SolutionInfo.Generate();
