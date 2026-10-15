@@ -22,15 +22,30 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>BusinessInterfaceTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Update="Templates\BusinessTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BusinessTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Update="Templates\DataInterfaceTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>DataInterfaceTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Update="Templates\DataTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DataTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Update="Templates\ModelTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>ModelTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\ServiceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -39,13 +54,25 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>BusinessInterfaceTemplate.cs</LastGenOutput>
     </None>
+    <None Update="Templates\BusinessTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>BusinessTemplate.cs</LastGenOutput>
+    </None>
     <None Update="Templates\DataInterfaceTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DataInterfaceTemplate.cs</LastGenOutput>
     </None>
+    <None Update="Templates\DataTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DataTemplate.cs</LastGenOutput>
+    </None>
     <None Update="Templates\ModelTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ModelTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\ServiceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ServiceTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 

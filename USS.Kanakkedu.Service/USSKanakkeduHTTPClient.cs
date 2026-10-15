@@ -1,9 +1,9 @@
 ﻿namespace USS.Kanakkedu.Service
 {
-    public class KanakkeduHTTPClient
+    public class USSKanakkeduHTTPClient
     {
         public readonly HttpClient client;
-        public KanakkeduHTTPClient(HttpClient http)
+        public USSKanakkeduHTTPClient(HttpClient http)
         {
             client = http;
         }

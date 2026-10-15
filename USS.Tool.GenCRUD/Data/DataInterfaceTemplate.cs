@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace USS.Tool.GenCRUD.Templates
+﻿namespace USS.Tool.GenCRUD.Templates
 {
     public partial class DataInterfaceTemplate
     {

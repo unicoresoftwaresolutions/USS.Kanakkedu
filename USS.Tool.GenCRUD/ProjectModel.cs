@@ -45,6 +45,42 @@ namespace USS.Tool.GenCRUD
                 return field;
             }
         }
+
+        public string FilePathBusiness
+        {
+            get
+            {
+                if (field == null)
+                {
+                    field = $"{project.RootPath}\\{RootNamespace}.Business";
+                }
+                return field;
+            }
+        }
+
+        public string FilePathData
+        {
+            get
+            {
+                if (field == null)
+                {
+                    field = $"{project.RootPath}\\{RootNamespace}.Data";
+                }
+                return field;
+            }
+        }
+
+        public string FilePathService
+        {
+            get
+            {
+                if (field == null)
+                {
+                    field = $"{project.RootPath}\\{RootNamespace}.Service";
+                }
+                return field;
+            }
+        }
         public string FileNameModel
         {
             get
@@ -78,6 +114,39 @@ namespace USS.Tool.GenCRUD
                 if (field == null)
                 {
                     field = $"{FilePathBusinessInterface}\\I{Table.TableName}Business.cs";
+                }
+                return field;
+            }
+        }
+        public string FileNameBusiness
+        {
+            get
+            {
+                if (field == null)
+                {
+                    field = $"{FilePathBusiness}\\{Table.TableName}Business.cs";
+                }
+                return field;
+            }
+        }
+        public string FileNameData
+        {
+            get
+            {
+                if (field == null)
+                {
+                    field = $"{FilePathData}\\{Table.TableName}Data.cs";
+                }
+                return field;
+            }
+        }
+        public string FileNameService
+        {
+            get
+            {
+                if (field == null)
+                {
+                    field = $"{FilePathService}\\{Table.TableName}Service.cs";
                 }
                 return field;
             }
@@ -201,6 +270,45 @@ namespace USS.Tool.GenCRUD
             }
         }
 
+        public string Business
+        {
+            get
+            {
+                if (field == null)
+                {
+                    BusinessTemplate model = new BusinessTemplate(this);
+                    field = model.TransformText();
+                }
+                return field;
+            }
+        }
+
+        public string Data
+        {
+            get
+            {
+                if (field == null)
+                {
+                    DataTemplate model = new DataTemplate(this);
+                    field = model.TransformText();
+                }
+                return field;
+            }
+        }
+
+        public string Service
+        {
+            get
+            {
+                if (field == null)
+                {
+                    ServiceTemplate model = new ServiceTemplate(this);
+                    field = model.TransformText();
+                }
+                return field;
+            }
+        }
+
         public bool GenerateDataInterface(bool IsOverRide = false)
         {
             if (!Directory.Exists(FilePathDataInterface))
@@ -225,6 +333,46 @@ namespace USS.Tool.GenCRUD
                 return false;
             }
             File.WriteAllText(FileNameBusinessInterface, BusinessInterface );
+            return true;
+        }
+
+        public bool GenerateBusiness(bool IsOverRide = false)
+        {
+            if (!Directory.Exists(FilePathBusiness))
+            {
+                Directory.CreateDirectory(FilePathBusiness);
+            }
+            if (File.Exists(FileNameBusiness) && !IsOverRide)
+            {
+                return false;
+            }
+            File.WriteAllText(FileNameBusiness, Business);
+            return true;
+        }
+        public bool GenerateData(bool IsOverRide = false)
+        {
+            if (!Directory.Exists(FilePathData))
+            {
+                Directory.CreateDirectory(FilePathData);
+            }
+            if (File.Exists(FileNameData) && !IsOverRide)
+            {
+                return false;
+            }
+            File.WriteAllText(FileNameData, Data);
+            return true;
+        }
+        public bool GenerateService(bool IsOverRide = false)
+        {
+            if (!Directory.Exists(FilePathService))
+            {
+                Directory.CreateDirectory(FilePathService);
+            }
+            if (File.Exists(FileNameService) && !IsOverRide)
+            {
+                return false;
+            }
+            File.WriteAllText(FileNameService, Service);
             return true;
         }
     }

@@ -5,7 +5,7 @@ namespace USS.Kanakkedu.Service
 {
     public class JournalTypeService : BaseService<JournalType>
     {
-        public JournalTypeService(KanakkeduHTTPClient http): base(http.client)
+        public JournalTypeService(USSKanakkeduHTTPClient http): base(http.client)
         {
             
         }
