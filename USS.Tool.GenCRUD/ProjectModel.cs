@@ -52,7 +52,7 @@ namespace USS.Tool.GenCRUD
             {
                 if (field == null)
                 {
-                    field = $"{FilePathDataInterface}\\I{Table.TableName}.cs";
+                    field = $"{FilePathDataInterface}\\I{Table.TableName}Data.cs";
                 }
                 return field;
             }
