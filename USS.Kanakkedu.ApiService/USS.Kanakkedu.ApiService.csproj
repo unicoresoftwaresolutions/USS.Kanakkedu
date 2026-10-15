@@ -13,7 +13,6 @@
     <ProjectReference Include="..\USS.Kanakkedu.Business\USS.Kanakkedu.Business.csproj" />
     <ProjectReference Include="..\USS.Kanakkedu.Data\USS.Kanakkedu.Data.csproj" />
     <ProjectReference Include="..\USS.Kanakkedu.ServiceDefaults\USS.Kanakkedu.ServiceDefaults.csproj" />
-    <ProjectReference Include="..\USS.Kanakkenu.Business.Interface\USS.Kanakkedu.Business.Interface.csproj" />
   </ItemGroup>
 
 
