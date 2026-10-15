@@ -18,7 +18,7 @@
   <Folder Name="/Kanakkedu/" />
   <Folder Name="/Kanakkedu/Interface/">
     <Project Path="USS.Kanakkedu.Data.Interface/USS.Kanakkedu.Data.Interface.csproj" Id="a0d54ddd-322b-4f4f-81bc-27a7d3b32e0c" />
-    <Project Path="USS.Kanakkenu.Business.Interface/USS.Kanakkedu.Business.Interface.csproj" Id="b80f7158-d60d-4de8-9c30-1d63f57a5a8d" />
+    <Project Path="USS.Kanakkedu.Business.Interface/USS.Kanakkedu.Business.Interface.csproj" Id="b80f7158-d60d-4de8-9c30-1d63f57a5a8d" />
   </Folder>
   <Folder Name="/Kanakkedu/Library/">
     <Project Path="USS.Kanakkedu.Business/USS.Kanakkedu.Business.csproj" Id="ce920532-7b24-47ec-bcbe-7ba1999b3871" />
