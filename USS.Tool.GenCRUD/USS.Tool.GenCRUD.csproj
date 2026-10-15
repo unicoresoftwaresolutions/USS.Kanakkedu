@@ -47,6 +47,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>DataTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Update="Templates\GridComponentCodeTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>GridComponentCodeTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\GridComponentTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>GridComponentTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Update="Templates\ModelTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -83,6 +93,14 @@
     <None Update="Templates\DataTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DataTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\GridComponentCodeTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>GridComponentCodeTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\GridComponentTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>GridComponentTemplate.cs</LastGenOutput>
     </None>
     <None Update="Templates\ModelTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
