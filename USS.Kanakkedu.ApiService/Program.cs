@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using USS.Kanakkedu.ApiService;
 using USS.Kanakkedu.Business;
 using USS.Kanakkedu.Business.Interface;
 using USS.Kanakkedu.Data;
@@ -23,11 +24,7 @@ builder.Services.AddDbContext<USSKanakkeduDBContext>(option => {
 
 });
 
-builder.Services.AddScoped<IFundData, FundData>();
-builder.Services.AddScoped<IFundBusiness, FundBusiness>();
-
-builder.Services.AddScoped<IJournalTypeData, JournalTypeData>();
-builder.Services.AddScoped<IJournalTypeBusiness, JournalTypeBusiness>();
+builder.Services.AddServiceDI();
 
 
 var app = builder.Build();
