@@ -104,6 +104,7 @@ namespace USS.Tool.GenCRUD
             {
                 projModel.GenerateModel(IsOverRide);
                 projModel.GenerateDataInterface(IsOverRide);
+                projModel.GenerateBusinessInterface(IsOverRide);
             }
         }
     }

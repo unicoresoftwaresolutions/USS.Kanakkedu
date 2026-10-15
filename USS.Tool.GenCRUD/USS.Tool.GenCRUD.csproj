@@ -17,6 +17,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Templates\BusinessInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BusinessInterfaceTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Update="Templates\DataInterfaceTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -30,6 +35,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Templates\BusinessInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>BusinessInterfaceTemplate.cs</LastGenOutput>
+    </None>
     <None Update="Templates\DataInterfaceTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DataInterfaceTemplate.cs</LastGenOutput>

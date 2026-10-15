@@ -33,6 +33,18 @@ namespace USS.Tool.GenCRUD
                 return field;
             }
         }
+
+        public string FilePathBusinessInterface
+        {
+            get
+            {
+                if (field == null)
+                {
+                    field = $"{project.RootPath}\\{RootNamespace}.Business.Interface";
+                }
+                return field;
+            }
+        }
         public string FileNameModel
         {
             get
@@ -53,6 +65,19 @@ namespace USS.Tool.GenCRUD
                 if (field == null)
                 {
                     field = $"{FilePathDataInterface}\\I{Table.TableName}Data.cs";
+                }
+                return field;
+            }
+        }
+
+
+        public string FileNameBusinessInterface
+        {
+            get
+            {
+                if (field == null)
+                {
+                    field = $"{FilePathBusinessInterface}\\I{Table.TableName}Business.cs";
                 }
                 return field;
             }
@@ -163,6 +188,18 @@ namespace USS.Tool.GenCRUD
                 return field;
             }
         }
+        public string BusinessInterface
+        {
+            get
+            {
+                if (field == null)
+                {
+                    BusinessInterfaceTemplate model = new BusinessInterfaceTemplate(this);
+                    field = model.TransformText();
+                }
+                return field;
+            }
+        }
 
         public bool GenerateDataInterface(bool IsOverRide = false)
         {
@@ -175,6 +212,19 @@ namespace USS.Tool.GenCRUD
                 return false;
             }
             File.WriteAllText(FileNameDataInterface, DataInterface);
+            return true;
+        }
+        public bool GenerateBusinessInterface(bool IsOverRide = false)
+        {
+            if (!Directory.Exists(FilePathBusinessInterface))
+            {
+                Directory.CreateDirectory(FilePathBusinessInterface);
+            }
+            if (File.Exists(FileNameBusinessInterface) && !IsOverRide)
+            {
+                return false;
+            }
+            File.WriteAllText(FileNameBusinessInterface, BusinessInterface );
             return true;
         }
     }
