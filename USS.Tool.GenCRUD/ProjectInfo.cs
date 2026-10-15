@@ -13,10 +13,10 @@
         {
             this.Name = name;
             this.Namespace = SolutionInfo.Name;
-            this.RootPath = SolutionInfo.Path;
+            this.RootPath = SolutionInfo.SolutionPath;
 
             this.ProjectName = $"{SolutionInfo.Name}.{name}";
-            this.Path = $"{SolutionInfo.Path}\\{this.ProjectName}";
+            this.Path = $"{SolutionInfo.SolutionPath}\\{this.ProjectName}";
             this.File = $"{this.Path}\\{this.ProjectName}.csproj";
         }
     }

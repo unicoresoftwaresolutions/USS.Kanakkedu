@@ -17,6 +17,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Templates\APIServiceDITemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>APIServiceDITemplate.tt</DependentUpon>
+    </Compile>
     <Compile Update="Templates\BusinessInterfaceTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -55,6 +60,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Templates\APIServiceDITemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>APIServiceDITemplate.cs</LastGenOutput>
+    </None>
     <None Update="Templates\BusinessInterfaceTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>BusinessInterfaceTemplate.cs</LastGenOutput>

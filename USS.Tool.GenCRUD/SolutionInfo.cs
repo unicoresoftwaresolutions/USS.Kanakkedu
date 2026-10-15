@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using USS.Tool.GenCRUD.Templates;
 
 namespace USS.Tool.GenCRUD
 {
     public static class SolutionInfo
     {
         public static string Name { get; set; } = SQLProj.RootNamespace;
-        public static string Path { get; set; } = SQLProj.ParentDir;
-        public static string File { get; set; }
+        public static string SolutionPath { get; set; } = SQLProj.ParentDir;
+        public static string SolutionFile { get; set; }
 
         public static List<SQLFieldType> FieldTypes
         {
@@ -100,7 +101,7 @@ namespace USS.Tool.GenCRUD
 
         public static void Generate(bool IsOverRide = false)
         {
-            foreach (var projModel in SolutionInfo.ProjectModels)
+            foreach (var projModel in ProjectModels)
             {
                 projModel.GenerateModel(IsOverRide);
                 projModel.GenerateDataInterface(IsOverRide);
@@ -109,7 +110,21 @@ namespace USS.Tool.GenCRUD
                 projModel.GenerateBusiness(IsOverRide);
                 projModel.GenerateService(IsOverRide);
                 projModel.GenerateController(IsOverRide);
+                
+                GenerateAPIServiceDI(true);
             }
+        }
+
+        public static void GenerateAPIServiceDI(bool IsOverRide = false)
+        {
+            APIServiceDITemplate apiServiceDITemplate = new APIServiceDITemplate(ProjectModels);
+            string content = apiServiceDITemplate.TransformText();
+            string filePath = Path.Combine(SolutionInfo.Projects.FirstOrDefault(x => x.Name == ProjectNames.ApiService).Path, "ServiceDI.cs");
+            if (File.Exists(filePath) && !IsOverRide)
+            {
+                return;
+            }
+            File.WriteAllText(filePath, content);
         }
     }
 }
