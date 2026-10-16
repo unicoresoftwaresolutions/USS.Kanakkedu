@@ -1,0 +1,16 @@
+@page "/LedgerBalance"
+@inherits BaseWeb<LedgerBalance>
+
+@rendermode InteractiveServer
+
+<h3>LedgerBalanceGrid</h3>
+
+<USS_Grid @bind-Values="Datas" 
+          IsAction="true" 
+          IdVisible="false"
+          OnAdd="@( x => { Add(); })" 
+          OnCancel="@( (BaseGridModel<LedgerBalance> x) => { Cancel(x); })"
+          OnEdit="@( (BaseGridModel<LedgerBalance> x) => { Edit(x); })"
+          OnSave="@( (BaseGridModel<LedgerBalance> x) => { Save(x); })"
+          OnDelete="@( (BaseGridModel<LedgerBalance> x) => { Delete(x); })"
+          OnDeleteClose="@( ( string x)=>{ OnDeleteClose(x);})" />

@@ -18,7 +18,7 @@ namespace USS.Tool.GenCRUD.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ControllerTemplate.tt"
+    #line 1 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ControllerTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "18.0.0.0")]
     public partial class ControllerTemplate : ControllerTemplateBase
     {
@@ -31,49 +31,49 @@ namespace USS.Tool.GenCRUD.Templates
             this.Write("\r\nusing Microsoft.AspNetCore.Mvc;\r\nusing USS.Base.ApiService.Controllers;\r\nusing " +
                     "");
             
-            #line 9 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ControllerTemplate.tt"
+            #line 9 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.RootNamespace));
             
             #line default
             #line hidden
             this.Write(".Business.Interface;\r\nusing ");
             
-            #line 10 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ControllerTemplate.tt"
+            #line 10 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.RootNamespace));
             
             #line default
             #line hidden
             this.Write(".Model;\r\n\r\nnamespace ");
             
-            #line 12 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ControllerTemplate.tt"
+            #line 12 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.RootNamespace));
             
             #line default
             #line hidden
             this.Write(".ApiService.Controllers\r\n{\r\n   \r\n    [ApiController]\r\n    public class ");
             
-            #line 16 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ControllerTemplate.tt"
+            #line 16 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.ClassName));
             
             #line default
             #line hidden
             this.Write("Controller : BaseAPIController<");
             
-            #line 16 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ControllerTemplate.tt"
+            #line 16 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.ClassName));
             
             #line default
             #line hidden
             this.Write(">\r\n    {\r\n        public ");
             
-            #line 18 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ControllerTemplate.tt"
+            #line 18 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.ClassName));
             
             #line default
             #line hidden
             this.Write("Controller(I");
             
-            #line 18 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ControllerTemplate.tt"
+            #line 18 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.ClassName));
             
             #line default

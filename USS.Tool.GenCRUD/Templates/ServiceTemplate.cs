@@ -18,7 +18,7 @@ namespace USS.Tool.GenCRUD.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ServiceTemplate.tt"
+    #line 1 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ServiceTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "18.0.0.0")]
     public partial class ServiceTemplate : ServiceTemplateBase
     {
@@ -30,49 +30,49 @@ namespace USS.Tool.GenCRUD.Templates
         {
             this.Write("\r\nusing USS.Base.Service;\r\nusing ");
             
-            #line 8 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ServiceTemplate.tt"
+            #line 8 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.RootNamespace));
             
             #line default
             #line hidden
             this.Write(".Model;\r\n\r\nnamespace ");
             
-            #line 10 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ServiceTemplate.tt"
+            #line 10 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.RootNamespace));
             
             #line default
             #line hidden
             this.Write(".Service\r\n{\r\n    public class ");
             
-            #line 12 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ServiceTemplate.tt"
+            #line 12 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.ClassName));
             
             #line default
             #line hidden
             this.Write("Service : BaseService<");
             
-            #line 12 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ServiceTemplate.tt"
+            #line 12 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.ClassName));
             
             #line default
             #line hidden
             this.Write(">\r\n    {\r\n        private readonly ");
             
-            #line 14 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ServiceTemplate.tt"
+            #line 14 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.RootNamespace.Replace(".","")));
             
             #line default
             #line hidden
             this.Write("HTTPClient _http;\r\n        public ");
             
-            #line 15 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ServiceTemplate.tt"
+            #line 15 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.ClassName));
             
             #line default
             #line hidden
             this.Write("Service(");
             
-            #line 15 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ServiceTemplate.tt"
+            #line 15 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\ServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.RootNamespace.Replace(".","")));
             
             #line default

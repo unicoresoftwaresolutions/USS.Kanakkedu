@@ -1,0 +1,16 @@
+@page "/Payment"
+@inherits BaseWeb<Payment>
+
+@rendermode InteractiveServer
+
+<h3>PaymentGrid</h3>
+
+<USS_Grid @bind-Values="Datas" 
+          IsAction="true" 
+          IdVisible="false"
+          OnAdd="@( x => { Add(); })" 
+          OnCancel="@( (BaseGridModel<Payment> x) => { Cancel(x); })"
+          OnEdit="@( (BaseGridModel<Payment> x) => { Edit(x); })"
+          OnSave="@( (BaseGridModel<Payment> x) => { Save(x); })"
+          OnDelete="@( (BaseGridModel<Payment> x) => { Delete(x); })"
+          OnDeleteClose="@( ( string x)=>{ OnDeleteClose(x);})" />

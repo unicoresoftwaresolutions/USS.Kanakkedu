@@ -1,0 +1,16 @@
+@page "/ACYear"
+@inherits BaseWeb<ACYear>
+
+@rendermode InteractiveServer
+
+<h3>ACYearGrid</h3>
+
+<USS_Grid @bind-Values="Datas" 
+          IsAction="true" 
+          IdVisible="false"
+          OnAdd="@( x => { Add(); })" 
+          OnCancel="@( (BaseGridModel<ACYear> x) => { Cancel(x); })"
+          OnEdit="@( (BaseGridModel<ACYear> x) => { Edit(x); })"
+          OnSave="@( (BaseGridModel<ACYear> x) => { Save(x); })"
+          OnDelete="@( (BaseGridModel<ACYear> x) => { Delete(x); })"
+          OnDeleteClose="@( ( string x)=>{ OnDeleteClose(x);})" />

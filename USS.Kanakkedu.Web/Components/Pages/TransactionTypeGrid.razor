@@ -1,0 +1,16 @@
+@page "/TransactionType"
+@inherits BaseWeb<TransactionType>
+
+@rendermode InteractiveServer
+
+<h3>TransactionTypeGrid</h3>
+
+<USS_Grid @bind-Values="Datas" 
+          IsAction="true" 
+          IdVisible="false"
+          OnAdd="@( x => { Add(); })" 
+          OnCancel="@( (BaseGridModel<TransactionType> x) => { Cancel(x); })"
+          OnEdit="@( (BaseGridModel<TransactionType> x) => { Edit(x); })"
+          OnSave="@( (BaseGridModel<TransactionType> x) => { Save(x); })"
+          OnDelete="@( (BaseGridModel<TransactionType> x) => { Delete(x); })"
+          OnDeleteClose="@( ( string x)=>{ OnDeleteClose(x);})" />

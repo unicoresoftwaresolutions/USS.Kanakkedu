@@ -18,7 +18,7 @@ namespace USS.Tool.GenCRUD.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessTemplate.tt"
+    #line 1 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "18.0.0.0")]
     public partial class BusinessTemplate : BusinessTemplateBase
     {
@@ -30,63 +30,63 @@ namespace USS.Tool.GenCRUD.Templates
         {
             this.Write("\r\nusing USS.Base.Business;\r\nusing ");
             
-            #line 8 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessTemplate.tt"
+            #line 8 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.RootNamespace));
             
             #line default
             #line hidden
             this.Write(".Business.Interface;\r\nusing ");
             
-            #line 9 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessTemplate.tt"
+            #line 9 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.RootNamespace));
             
             #line default
             #line hidden
             this.Write(".Data.Interface;\r\nusing ");
             
-            #line 10 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessTemplate.tt"
+            #line 10 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.RootNamespace));
             
             #line default
             #line hidden
             this.Write(".Model;\r\n\r\nnamespace ");
             
-            #line 12 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessTemplate.tt"
+            #line 12 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.RootNamespace));
             
             #line default
             #line hidden
             this.Write(".Business\r\n{\r\n    public class ");
             
-            #line 14 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessTemplate.tt"
+            #line 14 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.ClassName));
             
             #line default
             #line hidden
             this.Write("Business : BaseBusiness<");
             
-            #line 14 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessTemplate.tt"
+            #line 14 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.ClassName));
             
             #line default
             #line hidden
             this.Write(">, I");
             
-            #line 14 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessTemplate.tt"
+            #line 14 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.ClassName));
             
             #line default
             #line hidden
             this.Write("Business\r\n    {\r\n        public ");
             
-            #line 16 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessTemplate.tt"
+            #line 16 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.ClassName));
             
             #line default
             #line hidden
             this.Write("Business(I");
             
-            #line 16 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessTemplate.tt"
+            #line 16 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.ClassName));
             
             #line default

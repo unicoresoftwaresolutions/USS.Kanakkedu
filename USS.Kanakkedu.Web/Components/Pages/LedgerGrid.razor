@@ -1,0 +1,16 @@
+@page "/Ledger"
+@inherits BaseWeb<Ledger>
+
+@rendermode InteractiveServer
+
+<h3>LedgerGrid</h3>
+
+<USS_Grid @bind-Values="Datas" 
+          IsAction="true" 
+          IdVisible="false"
+          OnAdd="@( x => { Add(); })" 
+          OnCancel="@( (BaseGridModel<Ledger> x) => { Cancel(x); })"
+          OnEdit="@( (BaseGridModel<Ledger> x) => { Edit(x); })"
+          OnSave="@( (BaseGridModel<Ledger> x) => { Save(x); })"
+          OnDelete="@( (BaseGridModel<Ledger> x) => { Delete(x); })"
+          OnDeleteClose="@( ( string x)=>{ OnDeleteClose(x);})" />

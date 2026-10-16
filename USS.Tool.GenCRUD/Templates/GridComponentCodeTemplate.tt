@@ -3,8 +3,7 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-
-namespace <#= model.Namespace #>.Web.Components.Pages
+namespace <#= model.RootNamespace #>.Web.Components.Pages
 {
     public partial class <#= model.ClassName #>Grid
     {

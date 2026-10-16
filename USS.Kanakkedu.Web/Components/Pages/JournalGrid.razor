@@ -1,0 +1,16 @@
+@page "/Journal"
+@inherits BaseWeb<Journal>
+
+@rendermode InteractiveServer
+
+<h3>JournalGrid</h3>
+
+<USS_Grid @bind-Values="Datas" 
+          IsAction="true" 
+          IdVisible="false"
+          OnAdd="@( x => { Add(); })" 
+          OnCancel="@( (BaseGridModel<Journal> x) => { Cancel(x); })"
+          OnEdit="@( (BaseGridModel<Journal> x) => { Edit(x); })"
+          OnSave="@( (BaseGridModel<Journal> x) => { Save(x); })"
+          OnDelete="@( (BaseGridModel<Journal> x) => { Delete(x); })"
+          OnDeleteClose="@( ( string x)=>{ OnDeleteClose(x);})" />

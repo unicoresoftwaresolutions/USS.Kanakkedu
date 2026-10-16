@@ -1,0 +1,16 @@
+@page "/Receipt"
+@inherits BaseWeb<Receipt>
+
+@rendermode InteractiveServer
+
+<h3>ReceiptGrid</h3>
+
+<USS_Grid @bind-Values="Datas" 
+          IsAction="true" 
+          IdVisible="false"
+          OnAdd="@( x => { Add(); })" 
+          OnCancel="@( (BaseGridModel<Receipt> x) => { Cancel(x); })"
+          OnEdit="@( (BaseGridModel<Receipt> x) => { Edit(x); })"
+          OnSave="@( (BaseGridModel<Receipt> x) => { Save(x); })"
+          OnDelete="@( (BaseGridModel<Receipt> x) => { Delete(x); })"
+          OnDeleteClose="@( ( string x)=>{ OnDeleteClose(x);})" />

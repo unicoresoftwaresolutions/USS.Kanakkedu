@@ -1,0 +1,16 @@
+@page "/ChequeDetail"
+@inherits BaseWeb<ChequeDetail>
+
+@rendermode InteractiveServer
+
+<h3>ChequeDetailGrid</h3>
+
+<USS_Grid @bind-Values="Datas" 
+          IsAction="true" 
+          IdVisible="false"
+          OnAdd="@( x => { Add(); })" 
+          OnCancel="@( (BaseGridModel<ChequeDetail> x) => { Cancel(x); })"
+          OnEdit="@( (BaseGridModel<ChequeDetail> x) => { Edit(x); })"
+          OnSave="@( (BaseGridModel<ChequeDetail> x) => { Save(x); })"
+          OnDelete="@( (BaseGridModel<ChequeDetail> x) => { Delete(x); })"
+          OnDeleteClose="@( ( string x)=>{ OnDeleteClose(x);})" />

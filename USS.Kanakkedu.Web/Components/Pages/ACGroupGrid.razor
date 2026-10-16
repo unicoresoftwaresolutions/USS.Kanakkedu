@@ -1,0 +1,16 @@
+@page "/ACGroup"
+@inherits BaseWeb<ACGroup>
+
+@rendermode InteractiveServer
+
+<h3>ACGroupGrid</h3>
+
+<USS_Grid @bind-Values="Datas" 
+          IsAction="true" 
+          IdVisible="false"
+          OnAdd="@( x => { Add(); })" 
+          OnCancel="@( (BaseGridModel<ACGroup> x) => { Cancel(x); })"
+          OnEdit="@( (BaseGridModel<ACGroup> x) => { Edit(x); })"
+          OnSave="@( (BaseGridModel<ACGroup> x) => { Save(x); })"
+          OnDelete="@( (BaseGridModel<ACGroup> x) => { Delete(x); })"
+          OnDeleteClose="@( ( string x)=>{ OnDeleteClose(x);})" />

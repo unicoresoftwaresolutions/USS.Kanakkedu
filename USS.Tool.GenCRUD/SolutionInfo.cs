@@ -110,7 +110,7 @@ namespace USS.Tool.GenCRUD
                 projModel.GenerateBusiness(IsOverRide);
                 projModel.GenerateService(IsOverRide);
                 projModel.GenerateController(IsOverRide);
-                
+                projModel.GenerateComponent(IsOverRide);
                 GenerateAPIServiceDI(true);
             }
         }

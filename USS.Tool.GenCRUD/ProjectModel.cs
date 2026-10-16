@@ -94,6 +94,19 @@ namespace USS.Tool.GenCRUD
             }
         }
 
+
+        public string FilePathComponent
+        {
+            get
+            {
+                if (field == null)
+                {
+                    field = $"{project.RootPath}\\{RootNamespace}.Web\\Components\\Pages";
+                }
+                return field;
+            }
+        }
+
         public string FileNameModel
         {
             get
@@ -172,6 +185,18 @@ namespace USS.Tool.GenCRUD
                 if (field == null)
                 {
                     field = $"{FilePathController}\\{Table.TableName}Controller.cs";
+                }
+                return field;
+            }
+        }
+
+        public string FileNameComponent
+        {
+            get
+            {
+                if (field == null)
+                {
+                    field = $"{FilePathComponent}\\{Table.TableName}Grid.razor";
                 }
                 return field;
             }
@@ -348,6 +373,33 @@ namespace USS.Tool.GenCRUD
             }
         }
 
+        public string Component
+        {
+            get
+            {
+                if (field == null)
+                {
+                    GridComponentTemplate model = new GridComponentTemplate(this);
+                    field = model.TransformText();
+                }
+                return field;
+            }
+        }
+
+        public string ComponentCodeBehind
+        {
+            get
+            {
+                if (field == null)
+                {
+                    GridComponentCodeTemplate model = new GridComponentCodeTemplate(this);
+                    field = model.TransformText();
+                }
+                return field;
+            }
+        }
+
+
         public bool GenerateDataInterface(bool IsOverRide = false)
         {
             if (!Directory.Exists(FilePathDataInterface))
@@ -427,6 +479,21 @@ namespace USS.Tool.GenCRUD
                 return false;
             }
             File.WriteAllText(FileNameController, Controller);
+            return true;
+        }
+
+        public bool GenerateComponent(bool IsOverRide = false)
+        {
+            if (!Directory.Exists(FilePathComponent))
+            {
+                Directory.CreateDirectory(FilePathComponent);
+            }
+            if (File.Exists(FileNameComponent) && !IsOverRide)
+            {
+                return false;
+            }
+            File.WriteAllText(FileNameComponent, Component);
+            File.WriteAllText($"{FileNameComponent}.cs", ComponentCodeBehind);
             return true;
         }
     }

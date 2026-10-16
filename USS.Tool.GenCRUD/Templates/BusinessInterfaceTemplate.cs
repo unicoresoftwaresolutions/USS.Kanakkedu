@@ -18,7 +18,7 @@ namespace USS.Tool.GenCRUD.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessInterfaceTemplate.tt"
+    #line 1 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessInterfaceTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "18.0.0.0")]
     public partial class BusinessInterfaceTemplate : BusinessInterfaceTemplateBase
     {
@@ -30,28 +30,28 @@ namespace USS.Tool.GenCRUD.Templates
         {
             this.Write("\r\nusing USS.Base.Business.Interface;\r\nusing ");
             
-            #line 8 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessInterfaceTemplate.tt"
+            #line 8 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.RootNamespace));
             
             #line default
             #line hidden
             this.Write(".Model;\r\n\r\nnamespace ");
             
-            #line 10 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessInterfaceTemplate.tt"
+            #line 10 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.RootNamespace));
             
             #line default
             #line hidden
             this.Write(".Business.Interface\r\n{\r\n    public interface I");
             
-            #line 12 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessInterfaceTemplate.tt"
+            #line 12 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.ClassName));
             
             #line default
             #line hidden
             this.Write("Business : IBaseBusiness<");
             
-            #line 12 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessInterfaceTemplate.tt"
+            #line 12 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\BusinessInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.ClassName));
             
             #line default

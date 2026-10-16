@@ -18,7 +18,7 @@ namespace USS.Tool.GenCRUD.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\GridComponentCodeTemplate.tt"
+    #line 1 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\GridComponentCodeTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "18.0.0.0")]
     public partial class GridComponentCodeTemplate : GridComponentCodeTemplateBase
     {
@@ -28,30 +28,30 @@ namespace USS.Tool.GenCRUD.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("\r\nnamespace ");
+            this.Write("namespace ");
             
-            #line 7 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\GridComponentCodeTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(model.Namespace));
+            #line 6 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\GridComponentCodeTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(model.RootNamespace));
             
             #line default
             #line hidden
             this.Write(".Web.Components.Pages\r\n{\r\n    public partial class ");
             
-            #line 9 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\GridComponentCodeTemplate.tt"
+            #line 8 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\GridComponentCodeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.ClassName));
             
             #line default
             #line hidden
             this.Write("Grid\r\n    {\r\n        public ");
             
-            #line 11 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\GridComponentCodeTemplate.tt"
+            #line 10 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\GridComponentCodeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.ClassName));
             
             #line default
             #line hidden
             this.Write("Grid(");
             
-            #line 11 "C:\Users\Admin\source\repos\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\GridComponentCodeTemplate.tt"
+            #line 10 "C:\Users\Bala\source\repos\unicoresoftwaresolutions\USS.Kanakkedu\USS.Tool.GenCRUD\Templates\GridComponentCodeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.ClassName));
             
             #line default
