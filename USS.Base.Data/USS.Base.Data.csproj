@@ -7,8 +7,6 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.12" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\USS.Base.Data.Interface\USS.Base.Data.Interface.csproj" />
+    <PackageReference Include="UnicoreSoftwareSolutions.Base.Data.Interface" Version="1.0.0" />
   </ItemGroup>
 </Project>
