@@ -1,8 +1,5 @@
 <Solution>
   <Folder Name="/Base/" />
-  <Folder Name="/Base/Interface/">
-    <Project Path="USS.Base.Business.Interface/USS.Base.Business.Interface.csproj" Id="58ae3381-fbc2-46a9-8f42-b6ebbef2a198" />
-  </Folder>
   <Folder Name="/Base/Library/">
     <Project Path="USS.Base.Business/USS.Base.Business.csproj" Id="6fc8cdc3-3855-41c1-bd90-bb5410c8c39a" />
     <Project Path="USS.Base.Data/USS.Base.Data.csproj" Id="32c4d194-1326-4330-80a9-1532031d1e8a" />
@@ -16,8 +13,8 @@
   </Folder>
   <Folder Name="/Kanakkedu/" />
   <Folder Name="/Kanakkedu/Interface/">
-    <Project Path="USS.Kanakkedu.Data.Interface/USS.Kanakkedu.Data.Interface.csproj" Id="a0d54ddd-322b-4f4f-81bc-27a7d3b32e0c" />
     <Project Path="USS.Kanakkedu.Business.Interface/USS.Kanakkedu.Business.Interface.csproj" Id="b80f7158-d60d-4de8-9c30-1d63f57a5a8d" />
+    <Project Path="USS.Kanakkedu.Data.Interface/USS.Kanakkedu.Data.Interface.csproj" Id="a0d54ddd-322b-4f4f-81bc-27a7d3b32e0c" />
   </Folder>
   <Folder Name="/Kanakkedu/Library/">
     <Project Path="USS.Kanakkedu.Business/USS.Kanakkedu.Business.csproj" Id="ce920532-7b24-47ec-bcbe-7ba1999b3871" />
