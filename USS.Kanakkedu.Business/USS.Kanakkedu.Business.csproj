@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\USS.Base.Business\USS.Base.Business.csproj" />
     <ProjectReference Include="..\USS.Kanakkedu.Business.Interface\USS.Kanakkedu.Business.Interface.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="UnicoreSoftwareSolutions.Base.Business" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

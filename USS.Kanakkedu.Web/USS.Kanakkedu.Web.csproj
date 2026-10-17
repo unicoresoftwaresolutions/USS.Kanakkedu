@@ -7,9 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\USS.Base.Extension\USS.Base.Extension.csproj" />
-    <ProjectReference Include="..\USS.Base.Model\USS.Base.Model.csproj" />
-    <ProjectReference Include="..\USS.Base.Web\USS.Base.Web.csproj" />
+    <PackageReference Include="UnicoreSoftwareSolutions.Base.Web" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\USS.Kanakkedu.ServiceDefaults\USS.Kanakkedu.ServiceDefaults.csproj" />
     <ProjectReference Include="..\USS.Kanakkedu.Service\USS.Kanakkedu.Service.csproj" />
   </ItemGroup>

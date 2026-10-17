@@ -7,7 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\USS.Base.Service\USS.Base.Service.csproj" />
+    <PackageReference Include="UnicoreSoftwareSolutions.Base.Service" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\USS.Kanakkedu.Model\USS.Kanakkedu.Model.csproj" />
   </ItemGroup>
 
